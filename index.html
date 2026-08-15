@@ -13,12 +13,12 @@
   /* ROSE PETALS BG */
   #petals { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
   #particles { position: fixed; inset: 0; z-index: -1; }
- .aurora {
+.aurora {
     position: fixed; inset: 0; z-index: -1;
     background: radial-gradient(circle at 30% 40%, rgba(255,0,102,0.5) 0%, transparent 60%);
     filter: blur(100px); animation: aurora 25s infinite alternate;
   }
-  @keyframes aurora { 0% { transform: scale(1); } 100% { transform: scale(1.6); }
+  @keyframes aurora { 0% { transform: scale(1); } 100% { transform: scale(1.6); } } /* YAHAN } MISSING THA */
 
   #welcome {
     position: fixed; inset: 0; backdrop-filter: blur(70px) saturate(200%);
@@ -74,7 +74,6 @@
     opacity: 0.95; text-align: center; font-weight: 300; padding-bottom: 20px;
   }
 
-  /* GLASS NAV - FIXED BOTTOM NO OVERLAP */
 .nav {
     position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
     display: flex; gap: 20px; z-index: 99;
@@ -125,7 +124,6 @@
   }
   @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
-  /* SURPRISE BUTTON */
 #surpriseBtn {
     margin-top: 30px; padding: 22px 55px; font-size: 1.4rem; border: none;
     border-radius: 20px; font-weight: 800; cursor: pointer;
@@ -134,7 +132,6 @@
   }
 #surpriseBtn:hover { transform: scale(1.1); }
 
-  /* ROSE I LOVE YOU SCREEN */
   #roseScreen {
     position: fixed; inset: 0; background: radial-gradient(circle, #ff0066 0%, #990044 100%);
     display: none; justify-content: center; align-items: center; flex-direction: column;
@@ -145,14 +142,14 @@
     animation: heartBeat 1s infinite; text-align: center; z-index: 2;
     text-shadow: 0 0 60px rgba(255,255,255,0.8);
   }
- .rose {
+.rose {
     position: absolute; font-size: 30px; animation: roseFall 10s linear infinite;
   }
   @keyframes roseFall {
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
-  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); }
+  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } } /* YAHAN BHI } MISSING THA */
 
 .flyingKiss {
     position: fixed; font-size: 90px; z-index: 9998; pointer-events: none;
@@ -178,17 +175,17 @@
 
 <audio id="music" src="shruti.mp3_1.mp3" preload="auto" loop></audio>
 
-<!-- 10 TO 1 SLIDES -->
-<div class="slide active"><div class="content"><img src="shruti%2010.jpg" class="photo"><h1>Chapter 10</h1><p>My Jaan Kandhei, tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi. I love you endlessly.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%209.jpg" class="photo"><h1>Chapter 9</h1><p>Kandhei, main apna future sirf tumhare saath dekhna chahta hu. Tumhara haath pakad ke shaadi, ghar, sab kuch. Tum meri manzil ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%208.jpg" class="photo"><h1>Chapter 8</h1><p>My Jaan Shruti, main waada karta hu ki chahe duniya idhar ki udhar ho jaye, hum dono hamesha ek saath rahenge. Tum mera sab kuch ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%207.jpg" class="photo"><h1>Chapter 7</h1><p>Jab tum saath ho Kandhei to koi dikkat nahi lagti. Tum meri sabse badi taakat ho. Main hamesha tumhara sahara banunga.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%206.jpg" class="photo"><h1>Chapter 6</h1><p>Kandhei Jaan, tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki saccha pyar kya hota hai. Tum mere liye ek jaadu ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%205.jpg" class="photo"><h1>Chapter 5</h1><p>My Jaan, tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho Kandhei to mere life me roshni aa jaati hai.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%204.jpg" class="photo"><h1>Chapter 4</h1><p>Shruti Jaan, har dhadkan me sirf tumhara naam hai. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%203.jpg" class="photo"><h1>Chapter 3</h1><p>Kandhei, tumhari aankhon me ek alag hi nasha hai. Jab tum mujhe dekhti ho to dil ki dhadkan tez ho jaati hai.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti2.jpg" class="photo"><h1>Chapter 2</h1><p>My Jaan Shruti, tumhare saath bitaaya hua har pal sabse keemti hai. Tum meri khushi ki wajah ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti%201.jpg" class="photo"><h1>Chapter 1</h1><p>Kandhei, tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai. I love you my jaan.</p></div></div>
+<!-- 10 TO 1 SLIDES - DONO NAAM TRY KAREGA -->
+<div class="slide active"><div class="content"><img src="shruti10.jpg" onerror="this.src='shruti%2010.jpg'" class="photo"><h1>Chapter 10</h1><p>My Jaan Kandhei, tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi. I love you endlessly.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti9.jpg" onerror="this.src='shruti%209.jpg'" class="photo"><h1>Chapter 9</h1><p>Kandhei, main apna future sirf tumhare saath dekhna chahta hu. Tumhara haath pakad ke shaadi, ghar, sab kuch. Tum meri manzil ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti8.jpg" onerror="this.src='shruti%208.jpg'" class="photo"><h1>Chapter 8</h1><p>My Jaan Shruti, main waada karta hu ki chahe duniya idhar ki udhar ho jaye, hum dono hamesha ek saath rahenge. Tum mera sab kuch ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti7.jpg" onerror="this.src='shruti%207.jpg'" class="photo"><h1>Chapter 7</h1><p>Jab tum saath ho Kandhei to koi dikkat nahi lagti. Tum meri sabse badi taakat ho. Main hamesha tumhara sahara banunga.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti6.jpg" onerror="this.src='shruti%206.jpg'" class="photo"><h1>Chapter 6</h1><p>Kandhei Jaan, tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki saccha pyar kya hota hai. Tum mere liye ek jaadu ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti5.jpg" onerror="this.src='shruti%205.jpg'" class="photo"><h1>Chapter 5</h1><p>My Jaan, tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho Kandhei to mere life me roshni aa jaati hai.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti4.jpg" onerror="this.src='shruti%204.jpg'" class="photo"><h1>Chapter 4</h1><p>Shruti Jaan, har dhadkan me sirf tumhara naam hai. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti3.jpg" onerror="this.src='shruti%203.jpg'" class="photo"><h1>Chapter 3</h1><p>Kandhei, tumhari aankhon me ek alag hi nasha hai. Jab tum mujhe dekhti ho to dil ki dhadkan tez ho jaati hai.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti2.jpg" onerror="this.src='shruti%202.jpg'" class="photo"><h1>Chapter 2</h1><p>My Jaan Shruti, tumhare saath bitaaya hua har pal sabse keemti hai. Tum meri khushi ki wajah ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti1.jpg" onerror="this.src='shruti%201.jpg'" class="photo"><h1>Chapter 1</h1><p>Kandhei, tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai. I love you my jaan.</p></div></div>
 
 <div class="slide" id="lovePage"><div class="content"><h1>I LOVE YOU SHRUTI ❤️</h1><p>My Kandhei Jaan, itna sab kehne ke baad bhi ek baat baaki hai. Main tumse behad pyar karta hu. Har pal, har saans me sirf tum ho.</p></div></div>
 
@@ -215,16 +212,15 @@
     </p>
     <h1>I LOVE YOU SHRUTI KANDHEI ❤️</h1>
     <div id="collage">
-      <img src="shruti%2010.jpg"><img src="shruti%209.jpg"><img src="shruti%208.jpg">
-      <img src="shruti%207.jpg"><img src="shruti%206.jpg"><img src="shruti%205.jpg">
-      <img src="shruti%204.jpg"><img src="shruti%203.jpg"><img src="shruti2.jpg"><img src="shruti%201.jpg">
+      <img src="shruti10.jpg" onerror="this.src='shruti%2010.jpg'"><img src="shruti9.jpg" onerror="this.src='shruti%209.jpg'"><img src="shruti8.jpg" onerror="this.src='shruti%208.jpg'">
+      <img src="shruti7.jpg" onerror="this.src='shruti%207.jpg'"><img src="shruti6.jpg" onerror="this.src='shruti%206.jpg'"><img src="shruti5.jpg" onerror="this.src='shruti%205.jpg'">
+      <img src="shruti4.jpg" onerror="this.src='shruti%204.jpg'"><img src="shruti3.jpg" onerror="this.src='shruti%203.jpg'"><img src="shruti2.jpg" onerror="this.src='shruti%202.jpg'"><img src="shruti1.jpg" onerror="this.src='shruti%201.jpg'">
     </div>
     <h1 id="loveText">LOVE YOU KANDHEI ❤️</h1>
     <button id="surpriseBtn" onclick="showRose()">🎁 Final Surprise Click Karo</button>
   </div>
 </div>
 
-<!-- ROSE I LOVE YOU SCREEN -->
 <div id="roseScreen">
   <h1>I LOVE YOU ❤️</h1>
 </div>
