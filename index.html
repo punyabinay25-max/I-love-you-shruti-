@@ -8,17 +8,17 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #000; color: white; font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
+  html, body { background: #000; color: white; font-family: 'Inter', sans-serif; height: 100%; overflow: hidden; }
 
   /* ROSE PETALS BG */
   #petals { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
   #particles { position: fixed; inset: 0; z-index: -1; }
-.aurora {
+ .aurora {
     position: fixed; inset: 0; z-index: -1;
     background: radial-gradient(circle at 30% 40%, rgba(255,0,102,0.5) 0%, transparent 60%);
     filter: blur(100px); animation: aurora 25s infinite alternate;
   }
-  @keyframes aurora { 0% { transform: scale(1); } 100% { transform: scale(1.6); } }
+  @keyframes aurora { 0% { transform: scale(1); } 100% { transform: scale(1.6); }
 
   #welcome {
     position: fixed; inset: 0; backdrop-filter: blur(70px) saturate(200%);
@@ -32,7 +32,7 @@
     background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: gradient 4s infinite, neon 2s infinite; text-align: center;
   }
-  #welcome h2 { font-size: clamp(1.4rem, 5vw, 2.2rem); margin: 30px 0; font-weight: 100; letter-spacing: 4px; }
+  #welcome h2 { font-size: clamp(1.4rem, 5vw, 2.2rem); margin: 30px 0; font-weight: 100; letter-spacing: 4px; text-align: center; }
   #openBtn {
     padding: 26px 65px; font-size: 1.6rem; border: none; border-radius: 22px; font-weight: 800;
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white; cursor: pointer;
@@ -42,23 +42,23 @@
   @keyframes neon { 0%,100% { filter: drop-shadow(0 0 40px #ff0066); } 50% { filter: drop-shadow(0 0 80px #ff99cc); } }
 
 .slide {
-    position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
-    flex-direction: column; padding: 20px 20px 160px 20px; opacity: 0;
+    position: fixed; inset: 0; display: none; justify-content: center; align-items: flex-start;
+    flex-direction: column; padding: 20px; opacity: 0; overflow-y: auto;
     transition: all 1.8s cubic-bezier(0.4,0,0.2,1);
   }
 .slide.active { display: flex; opacity: 1; animation: cinematic 1.8s; }
   @keyframes cinematic { 0% { transform: scale(1.3); filter: blur(30px); } 100% { transform: scale(1); filter: blur(0); } }
 
 .content {
-    width: 100%; max-width: 800px; display: flex; flex-direction: column; align-items: center;
+    width: 100%; max-width: 800px; margin: 0 auto 180px auto; display: flex; flex-direction: column; align-items: center;
     background: rgba(255,255,255,0.03); backdrop-filter: blur(60px) saturate(250%);
     border: 1px solid rgba(255,255,255,0.25); border-radius: 45px;
-    padding: 45px 40px; box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+    padding: 35px 30px; box-shadow: 0 40px 120px rgba(0,0,0,0.7);
   }
 
 .photo {
-    width: 92vw; max-width: 550px; height: 58vh; border-radius: 35px;
-    object-fit: cover; margin-bottom: 35px;
+    width: 100%; max-width: 550px; height: auto; aspect-ratio: 3/4; border-radius: 35px;
+    object-fit: cover; margin-bottom: 30px;
     box-shadow: 0 40px 100px rgba(255,0,102,0.6);
     border: 3px solid rgba(255,255,255,0.2);
   }
@@ -71,19 +71,19 @@
   }
   p {
     font-size: clamp(1.2rem, 4vw, 1.4rem); line-height: 2.1;
-    opacity: 0.95; text-align: center; font-weight: 300;
+    opacity: 0.95; text-align: center; font-weight: 300; padding-bottom: 20px;
   }
 
-  /* GLASS NAV - NO OVERLAP */
+  /* GLASS NAV - FIXED BOTTOM NO OVERLAP */
 .nav {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 30px; z-index: 99;
-    background: rgba(0,0,0,0.3); backdrop-filter: blur(40px);
-    padding: 15px 30px; border-radius: 25px;
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 20px; z-index: 99;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(40px);
+    padding: 12px 25px; border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.2);
   }
 .btn {
-    padding: 18px 38px; font-size: 1.25rem; border: none; border-radius: 16px;
+    padding: 16px 32px; font-size: 1.15rem; border: none; border-radius: 16px;
     background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.3);
     color: white; cursor: pointer; font-weight: 700; transition: all 0.5s;
   }
@@ -91,11 +91,11 @@
   #back { display: none; }
 
 .yesno {
-    display: flex; gap: 35px; margin-top: 40px;
+    display: flex; gap: 25px; margin-top: 40px;
     position: relative; width: 100%; justify-content: center; height: 110px;
   }
   #yes, #no {
-    padding: 22px 50px; font-size: 1.5rem; border-radius: 18px; font-weight: 900;
+    padding: 20px 45px; font-size: 1.4rem; border-radius: 18px; font-weight: 900;
     border: none; background: linear-gradient(135deg,#ff0066,#ff3399);
     color: white; cursor: pointer; transition: all 0.3s;
     position: absolute; box-shadow: 0 25px 60px rgba(255,0,102,0.6);
@@ -109,21 +109,21 @@
   }
 
   #collage {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    width: 98vw; max-width: 750px; margin-top: 35px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+    width: 100%; max-width: 700px; margin-top: 30px;
   }
   #collage img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 25px;
+    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 20px;
     transition: all 0.7s; border: 3px solid rgba(255,255,255,0.2);
   }
-  #collage img:hover { transform: scale(1.25) rotate(10deg); box-shadow: 0 25px 60px rgba(255,0,102,0.7); }
+  #collage img:hover { transform: scale(1.15) rotate(8deg); box-shadow: 0 25px 60px rgba(255,0,102,0.7); }
   #loveText {
-    font-size: clamp(3rem, 13vw, 5.5rem); margin: 35px 0; font-weight: 900;
+    font-size: clamp(2.8rem, 12vw, 5rem); margin: 30px 0; font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff99cc,#fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: pulse 1.3s infinite; text-align: center;
   }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
   /* SURPRISE BUTTON */
 #surpriseBtn {
@@ -143,16 +143,16 @@
   #roseScreen h1 {
     font-size: clamp(4rem, 20vw, 12rem); color: white; font-weight: 900;
     animation: heartBeat 1s infinite; text-align: center; z-index: 2;
-    text-shadow: 0 60px rgba(255,255,255,0.8);
+    text-shadow: 0 0 60px rgba(255,255,255,0.8);
   }
-.rose {
+ .rose {
     position: absolute; font-size: 30px; animation: roseFall 10s linear infinite;
   }
   @keyframes roseFall {
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
-  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); }
 
 .flyingKiss {
     position: fixed; font-size: 90px; z-index: 9998; pointer-events: none;
@@ -162,6 +162,7 @@
     0% { transform: translate(0,0) scale(1) rotate(0deg); }
     100% { transform: translate(var(--x), var(--y)) scale(0.005) rotate(1800deg); opacity: 0; }
   }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
 </style>
 </head>
 <body>
@@ -206,7 +207,7 @@
 <div class="slide" id="finalSlide">
   <div class="content">
     <h1>The Final Surprise 🎁</h1>
-    <p style="font-style: italic; margin: 35px 0;">
+    <p style="font-style: italic; margin: 30px 0;">
       "Teri ek jhalak ko tarasti hai meri aankhein Kandhei,<br>
       Tere naam se dhadakta hai mera dil Jaan,<br>
       Tu mil jaye to lagta hai,<br>
@@ -278,10 +279,12 @@ function accept(){
 
 function showRose(){
   document.getElementById('finalSlide').style.display = 'none';
+  document.querySelector('.nav').style.display = 'none';
   document.getElementById('roseScreen').style.display = 'flex';
+  startRoses();
 }
 
-// NO BUTTON SIRF KANPEGA USI JAGAH
+// NO BUTTON SIRF KANPEGA
 document.addEventListener('mousemove', moveNo);
 document.addEventListener('touchmove', moveNo);
 function moveNo(e){
@@ -297,24 +300,37 @@ function moveNo(e){
   }
 }
 
-// ROSE PETALS
+// ROSE PETALS BG
 function startPetals(){
   const canvas = document.getElementById('petals');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth; canvas.height = window.innerHeight;
   let petals = [];
-  for(let i=0; i<80; i++){ petals.push({x:Math.random()*canvas.width, y:Math.random()*-100, r:Math.random()*15+10, dy:Math.random()*2+1, dx:(Math.random()-0.5)*0.5, rot:0}) }
+  for(let i=0; i<80; i++){ petals.push({x:Math.random()*canvas.width, y:Math.random()*-100, r:Math.random()*15+10, dy:Math.random()*2+1, dx:(Math.random()-0.5)*0.5}) }
   function animatePetals(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = 'rgba(255,0,102,0.7)';
     petals.forEach(p => {
       ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      p.y+=p.dy; p.x+=p.dx; p.rot+=0.01;
+      p.y+=p.dy; p.x+=p.dx;
       if(p.y>canvas.height) {p.y=-20; p.x=Math.random()*canvas.width}
     });
     requestAnimationFrame(animatePetals);
   }
   animatePetals();
+}
+
+// ROSES FOR FINAL SCREEN
+function startRoses(){
+  setInterval(() => {
+    let rose = document.createElement("div");
+    rose.innerHTML = "🌹";
+    rose.className = "rose";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.getElementById('roseScreen').appendChild(rose);
+    setTimeout(() => rose.remove(), 10000);
+  }, 200);
 }
 
 // 300 PARTICLES
