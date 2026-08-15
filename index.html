@@ -1,122 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Shruti ❤️</title>
 <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fec5e5, #ffecd2);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
+    background-size: 400% 400%; animation: gradient 15s ease infinite;
+    font-family: 'Arial', sans-serif; overflow: hidden;
   }
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+ .layer {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 20px; color: white; opacity: 0;
+    transition: opacity 1.5s ease-in-out; pointer-events: none;
   }
-.container {
-    text-align: center;
-    color: white;
-    z-index: 2;
-  }
-.photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid white;
-    object-fit: cover;
-    margin-bottom: 25px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.7);
+ .layer.active { opacity: 1; pointer-events: all; }
+
+  /* PHOTO AB PURI BADI */
+ .photo {
+    width: 90vw; max-width: 400px; height: 50vh; max-height: 500px;
+    border-radius: 30px; border: 5px solid white; object-fit: cover; margin-bottom: 25px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.8);
     animation: floatPhoto 3s ease-in-out infinite;
   }
-  @keyframes floatPhoto {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+  @keyframes floatPhoto { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+
+  h1 { font-size: 2.5rem; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+  p { font-size: 1.3rem; margin-bottom: 30px; max-width: 90%; text-shadow: 1px 1px 5px rgba(0,0,0,0.2); }
+
+  #nextBtn {
+    position: fixed; bottom: 40px; padding: 15px 35px; font-size: 1.2rem; border: none; border-radius: 50px;
+    background: white; color: #ff0066; cursor: pointer; font-weight: bold; z-index: 999;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   }
-  h1 {
-    font-size: 2.8rem;
-    min-height: 60px;
-  }
-  #subtext {
-    font-size: 1.3rem;
-    margin: 20px 0;
-    min-height: 30px;
-  }
-.heart,.sparkle {
-    position: absolute;
-    animation: float 6s infinite linear;
-  }
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-  }
-  button {
-    padding: 15px 35px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 50px;
-    background: white;
-    color: #ff0066;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-  }
-  button:hover { transform: scale(1.1); }
+
+ .heart,.sparkle { position: absolute; animation: float 6s infinite linear; z-index: -1; }
+  @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 </style>
 </head>
 <body>
 
-<audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+<!-- MUSIC FIX: controls hata diye, autoplay ke liye -->
+<audio id="bgMusic" src="shruti.mp3" loop></audio>
 
-<div class="container">
+<!-- LAYER 1 -->
+<div class="layer active">
   <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1 id="typewriter"></h1>
-  <p id="subtext">You are my everything</p>
-  <button onclick="newMessage()">Mere liye ek aur ❤️</button>
+  <h1>I Love You Shruti ❤️</h1>
+  <p>Shruti, tumhari ek smile ke liye main duniya jeet lu</p>
 </div>
 
+<!-- LAYER 2 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Tum ho to...</h1>
+  <p>Har din Valentine's Day hai mere liye</p>
+</div>
+
+<!-- LAYER 3 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>My heart beats only for you</h1>
+  <p>Tumse milna meri life ki best cheez hai</p>
+</div>
+
+<!-- LAYER 4 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Tumhari Aankhein ❤️</h1>
+  <p>Usme kho jaane ka mann karta hai har baar</p>
+</div>
+
+<!-- LAYER 5 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Tumhari Baatein</h1>
+  <p>Tumhari voice sunke din ban jata hai</p>
+</div>
+
+<!-- LAYER 6 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Promise</h1>
+  <p>Main hamesha tumhara saath dunga, har khushi har gam me</p>
+</div>
+
+<!-- LAYER 7 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Tum Special Ho</h1>
+  <p>Duniya me 8 Arab log hain, par mera dil sirf tumhe chunta hai</p>
+</div>
+
+<!-- LAYER 8 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Future ka Sapna</h1>
+  <p>Tumhara haath pakad ke zindagi bhar chalna hai</p>
+</div>
+
+<!-- LAYER 9 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Thank You</h1>
+  <p>Meri life me aane ke liye. Tum best ho ❤️</p>
+</div>
+
+<!-- LAYER 10 -->
+<div class="layer">
+  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <h1>Last wali baat</h1>
+  <p>I Love You Shruti. Forever and Always</p>
+</div>
+
+<button id="nextBtn" onclick="nextLayer()">Next ❤️</button>
+
 <script>
-  // Typewriter effect
-  const mainText = "I Love You Shruti ❤️";
-  let j = 0;
-  function typeWriter() {
-    if (j < mainText.length) {
-      document.getElementById("typewriter").innerHTML += mainText.charAt(j);
-      j++;
-      setTimeout(typeWriter, 100);
-    }
-  }
-  typeWriter();
+  let currentLayer = 0;
+  const layers = document.querySelectorAll('.layer');
+  const music = document.getElementById('bgMusic');
 
-  // Messages
-  const messages = [
-    "Shruti, tumhari ek smile ke liye main duniya jeet lu",
-    "Tum ho to har din Valentine's Day hai",
-    "My heart beats only for you",
-    "Tumse milna meri life ki best cheez hai",
-    "Can we be us forever?",
-    "Shruti, you are my home"
-  ];
-  let i = 0;
-  function newMessage(){
-    document.getElementById("subtext").innerText = messages[i];
-    i = (i + 1) % messages.length;
-  }
-
-  // Auto play music after 1 click
+  // MUSIC CHALANE KE LIYE: pehle click pe start
   document.body.addEventListener('click', () => {
-    document.getElementById('bgMusic').play();
+    music.play().catch(()=>{});
   }, { once: true });
 
-  // Floating hearts + sparkles
+  function nextLayer(){
+    layers[currentLayer].classList.remove('active');
+    currentLayer++;
+    if(currentLayer >= layers.length) currentLayer = 0; // wapas pehle pe
+    layers[currentLayer].classList.add('active');
+
+    if(currentLayer === layers.length - 1){
+      document.getElementById('nextBtn').innerText = "Wapas se ❤️";
+    } else {
+      document.getElementById('nextBtn').innerText = "Next ❤️";
+    }
+  }
+
+  // Background hearts
   setInterval(() => {
     let el = document.createElement("div");
     el.innerHTML = Math.random() > 0.5? "❤️" : "✨";
