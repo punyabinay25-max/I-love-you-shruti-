@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Shruti Kandhei My Jaan ❤️</title>
-<link rel="preload" href="shruti.mp3_1.mp3" as="audio">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: #000; color: white; font-family: 'Inter', sans-serif; height: 100%; overflow: hidden; }
 
-  /* LOADING SCREEN */
   #loader {
     position: fixed; inset: 0; background: #000; z-index: 1001;
     display: flex; justify-content: center; align-items: center; flex-direction: column;
@@ -27,7 +25,7 @@
 
   #welcome {
     position: fixed; inset: 0; backdrop-filter: blur(70px);
-    background: rgba(0,0,0,0.4); display: flex; flex-direction: column;
+    background: rgba(0,0,0,0.4); display: none; flex-direction: column;
     justify-content: center; align-items: center; z-index: 1000;
     transition: all 2s; padding: 20px;
   }
@@ -132,7 +130,6 @@
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white;
   }
 
-  /* NEW BLACK + RED ROSE + PINK I LOVE YOU SCREEN */
   #roseScreen {
     position: fixed; inset: 0; background: #000;
     display: none; justify-content: center; align-items: center; flex-direction: column;
@@ -175,10 +172,10 @@
 <canvas id="particles"></canvas>
 <div class="aurora"></div>
 
-<div id="welcome" style="display:none">
+<div id="welcome">
   <h1>Shruti Kandhei My Jaan</h1>
   <h2>I HAVE A SURPRISE FOR YOU</h2>
-  <button id="openBtn" onclick="start()">Begin Journey</button>
+  <button id="openBtn" onclick="start()">Begin Journey 🎵</button>
 </div>
 
 <audio id="music" src="shruti.mp3_1.mp3" preload="auto" loop></audio>
@@ -245,7 +242,6 @@ let music = document.getElementById('music');
 let noBtn = document.getElementById('no');
 let noText = document.getElementById('noText');
 
-// SAB LOAD HONE KE BAAD LOADER HATAO
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').style.display = 'none';
@@ -256,7 +252,9 @@ window.addEventListener('load', () => {
 function start(){
   document.getElementById('welcome').style.opacity = '0';
   setTimeout(()=>document.getElementById('welcome').style.display='none', 1500);
-  music.play().catch(()=>{});
+  // YAHAN MUSIC FORCE PLAY HOGA
+  music.volume = 1.0;
+  music.play().then(()=>{}).catch((e)=>{console.log("Music error:", e)});
 }
 
 function next(){
@@ -323,7 +321,7 @@ function startRoses(){
   }, 150);
 }
 
-// 200 PARTICLES - LITE FOR FAST
+// 200 PARTICLES
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
