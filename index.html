@@ -10,7 +10,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body { background: #000; color: white; font-family: 'Poppins', sans-serif; overflow: hidden; height: 100vh; }
 
-  /* WELCOME SCREEN */
   #welcome {
     position: fixed; inset: 0; background: radial-gradient(circle at 50% 30%, #ff0066 0%, #000 70%);
     display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -28,7 +27,6 @@
   @keyframes glow { 0%,100% { filter: drop-shadow(0 0 15px #ff0066); } 50% { filter: drop-shadow(0 0 35px #ff99cc); } }
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* SLIDES */
 .slide {
     position: fixed; inset: 0; display: none; justify-content: space-between; align-items: center;
     flex-direction: column; padding: 20px 20px 110px 20px; opacity: 0; transition: opacity 1s ease;
@@ -52,7 +50,6 @@
   h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); margin-bottom: 12px; font-weight: 700; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
   p { font-size: clamp(1rem, 4vw, 1.2rem); line-height: 1.7; opacity: 0.95; text-align: center; max-width: 600px; }
 
-  /* BUTTONS - FIXED BOTTOM NO OVERLAP */
 .nav {
     position: fixed; bottom: 0; left: 0; width: 100%; padding: 20px;
     display: flex; justify-content: space-between; gap: 15px; background: linear-gradient(0deg, #000 90%, transparent 100%);
@@ -66,39 +63,35 @@
 .btn:active { transform: scale(0.95); }
   #back { background: rgba(255,255,255,0.1); border: 2px solid #ff0066; display: none; }
 
-  /* PROPOSAL */
-.yesno { display: flex; gap: 15px; margin-top: 25px; width: 100%; justify-content: center; position: relative; height: 70px; }
+.yesno { display: flex; gap: 15px; margin-top: 25px; width: 100%; justify-content: center; position: relative; height: 100px; }
   #yes, #no {
-    flex: 1; max-width: 180px; padding: 16px 20px; font-size: clamp(1.1rem, 5vw, 1.3rem); border-radius: 50px;
+    padding: 16px 35px; font-size: clamp(1.1rem, 5vw, 1.3rem); border-radius: 50px;
     border: none; background: linear-gradient(90deg,#ff0066,#ff3399); color: white; cursor: pointer; font-weight: 600;
-    transition: 0.4s; position: absolute;
+    transition: 0.3s; position: absolute;
   }
-  #yes { left: 10%; }
-  #no { right: 10%; transition: all 0.5s; }
-  #no:hover { transform: translate(-180px, -130px) rotate(720deg); }
+  #yes { left: 15%; }
+  #no { right: 15%; }
+  #noText { position: absolute; bottom: -30px; font-size: 0.9rem; color: #ff99cc; display: none; }
 
-  /* FINAL COLLAGE + KISSING */
   #collage {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
     width: 95vw; max-width: 500px; margin-top: 15px;
   }
   #collage img {
     width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 15px;
-    border: 2px solid rgba(255,0,102,0.4); transition: 0.4s;
+    border: 2px solid rgba(255,0,102,0.4);
   }
-  #collage img:hover { transform: scale(1.1); }
   #loveText { font-size: clamp(2rem, 10vw, 3.5rem); margin: 15px 0; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1.5s infinite; text-align: center; }
   @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-  /* KISSING HEARTS ANIMATION */
- .kiss {
-    position: absolute; font-size: 30px; animation: kissFloat 4s infinite linear;
-    z-index: -1;
+  /* KISS FLY ANIMATION */
+.flyingKiss {
+    position: fixed; font-size: 50px; z-index: 9999; pointer-events: none;
+    animation: flyKiss 3s linear forwards;
   }
-  @keyframes kissFloat {
-    0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 1; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(2) rotate(360deg); opacity: 0; }
+  @keyframes flyKiss {
+    0% { transform: translate(0,0) scale(1); }
+    100% { transform: translate(var(--x), var(--y)) scale(0.2); opacity: 0; }
   }
 </style>
 </head>
@@ -113,68 +106,12 @@
 
 <audio id="music" src="shruti.mp3_1.mp3" preload="auto" loop></audio>
 
-<!-- 10 PHOTO SLIDES -->
+<!-- 10 TO 1 PHOTO SLIDES - ULTA ORDER -->
 <div class="slide active">
   <div class="content">
-    <img src="shruti%201.jpg" class="photo" loading="lazy">
-    <h1>Chapter 1</h1>
-    <p>Tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai aur lagta hai duniya ki saari khushiyan mere paas hain.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti2.jpg" class="photo" loading="lazy">
-    <h1>Chapter 2</h1>
-    <p>Tumhare saath bitaaya hua har pal mere liye sabse keemti hai. Tum meri khushi ki wajah ho aur meri life ka sabse khoobsurat hissa tum hi ho hamesha.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%203.jpg" class="photo" loading="lazy">
-    <h1>Chapter 3</h1>
-    <p>Tumhari aankhon me ek alag hi nasha hai yaar. Jab tum mujhe dekhti ho to dil ki dhadkan tez ho jaati hai aur main usi pal me kho jaata hu poori tarah.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%204.jpg" class="photo" loading="lazy">
-    <h1>Chapter 4</h1>
-    <p>Har dhadkan me sirf tumhara naam hai Shruti. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho meri har roz.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%205.jpg" class="photo" loading="lazy">
-    <h1>Chapter 5</h1>
-    <p>Tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho to lagta hai jaise mere life me roshni aa gayi ho aur saara andhera khatam.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%206.jpg" class="photo" loading="lazy">
-    <h1>Chapter 6</h1>
-    <p>Tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki pyar kya hota hai, care kya hoti hai. Tum mere liye ek jaadu ho jo kabhi khatam na ho.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%207.jpg" class="photo" loading="lazy">
-    <h1>Chapter 7</h1>
-    <p>Jab tum saath ho to koi dikkat nahi lagti. Tum meri sabse badi taakat ho aur main promise karta hu main hamesha tumhara sabse bada sahara banunga.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%208.jpg" class="photo" loading="lazy">
-    <h1>Chapter 8</h1>
-    <p>Main waada karta hu ki chahe kitni bhi problems aayein, kitne bhi log kuch bhi kahein, hum dono hamesha ek saath rahenge aur ek dusre ka haath nahi chhodenge.</p>
+    <img src="shruti%2010.jpg" class="photo" loading="lazy">
+    <h1>Chapter 10</h1>
+    <p>10 pal, 10 yaadein, aur ek hi ehsaas. Tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi.</p>
   </div>
 </div>
 
@@ -188,9 +125,66 @@
 
 <div class="slide">
   <div class="content">
-    <img src="shruti%2010.jpg" class="photo" loading="lazy">
-    <h1>Chapter 10</h1>
-    <p>10 pal, 10 yaadein, aur ek hi ehsaas. Tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi.</p>
+    <img src="shruti%208.jpg" class="photo" loading="lazy">
+    <h1>Chapter 8</h1>
+    <p>Main waada karta hu ki chahe kitni bhi problems aayein, kitne bhi log kuch bhi kahein, hum dono hamesha ek saath rahenge aur ek dusre ka haath nahi chhodenge.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti%207.jpg" class="photo" loading="lazy">
+    <h1>Chapter 7</h1>
+    <p>Jab tum saath ho to koi dikkat nahi lagti. Tum meri sabse badi taakat ho aur main promise karta hu main hamesha tumhara sabse bada sahara banunga.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti%206.jpg" class="photo" loading="lazy">
+    <h1>Chapter 6</h1>
+    <p>Tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki pyar kya hota hai, care kya hoti hai. Tum mere liye ek jaadu ho jo kabhi khatam na ho.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti%205.jpg" class="photo" loading="lazy">
+    <h1>Chapter 5</h1>
+    <p>Tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho to lagta hai jaise mere life me roshni aa gayi ho aur saara andhera khatam.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti%204.jpg" class="photo" loading="lazy">
+    <h1>Chapter 4</h1>
+    <p>Har dhadkan me sirf tumhara naam hai Shruti. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho meri har roz.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti%203.jpg" class="photo" loading="lazy">
+    <h1>Chapter 3</h1>
+    <p>Tumhari aankhon me ek alag hi nasha hai yaar. Jab tum mujhe dekhti ho to dil ki dhadkan tez ho jaati hai aur main usi pal me kho jaata hu poori tarah.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="content">
+    <img src="shruti2.jpg" class="photo" loading="lazy">
+    <h1>Chapter 2</h1>
+    <p>Tumhare saath bitaaya hua har pal mere liye sabse keemti hai. Tum meri khushi ki wajah ho aur meri life ka sabse khoobsurat hissa tum hi ho hamesha.</p>
+  </div>
+</div>
+
+<!-- IMAGE 1 LAST BEFORE PROPOSAL -->
+<div class="slide">
+  <div class="content">
+    <img src="shruti%201.jpg" class="photo" loading="lazy">
+    <h1>Chapter 1</h1>
+    <p>Tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai aur lagta hai duniya ki saari khushiyan mere paas hain.</p>
   </div>
 </div>
 
@@ -210,19 +204,26 @@
     <div class="yesno">
       <button id="yes" onclick="accept()">Yes ❤️</button>
       <button id="no">No 😢</button>
+      <div id="noText">Dubara soch lo 🥺</div>
     </div>
   </div>
 </div>
 
-<!-- FINAL MESSAGE + COLLAGE + KISS -->
+<!-- FINAL SURPRISE + SHAYARI + COLLAGE -->
 <div class="slide" id="finalSlide">
   <div class="content">
-    <h1>I Knew It! ❤️</h1>
-    <p>I Love You Too Shruti! Tum meri ho, main tumhara hu. Ab hum kabhi alag nahi honge. Forever and Always!</p>
+    <h1>Aur Sabse Bada Surprise 🎁</h1>
+    <p style="font-style: italic; margin: 15px 0;">
+      "Teri ek jhalak ko tarasti hai meri aankhein,<br>
+      Tere naam se dhadakta hai mera dil,<br>
+      Tu mil jaye to lagta hai,<br>
+      Jannat mil gayi mujhe is zameen pe."
+    </p>
+    <h1>I LOVE YOU SHRUTI ❤️</h1>
     <div id="collage">
-      <img src="shruti%201.jpg" loading="lazy"><img src="shruti2.jpg" loading="lazy"><img src="shruti%203.jpg" loading="lazy">
-      <img src="shruti%204.jpg" loading="lazy"><img src="shruti%205.jpg" loading="lazy"><img src="shruti%206.jpg" loading="lazy">
-      <img src="shruti%207.jpg" loading="lazy"><img src="shruti%208.jpg" loading="lazy"><img src="shruti%209.jpg" loading="lazy"><img src="shruti%2010.jpg" loading="lazy">
+      <img src="shruti%2010.jpg" loading="lazy"><img src="shruti%209.jpg" loading="lazy"><img src="shruti%208.jpg" loading="lazy">
+      <img src="shruti%207.jpg" loading="lazy"><img src="shruti%206.jpg" loading="lazy"><img src="shruti%205.jpg" loading="lazy">
+      <img src="shruti%204.jpg" loading="lazy"><img src="shruti%203.jpg" loading="lazy"><img src="shruti2.jpg" loading="lazy"><img src="shruti%201.jpg" loading="lazy">
     </div>
     <h1 id="loveText">LOVE YOU SHRUTI ❤️</h1>
   </div>
@@ -237,6 +238,8 @@
 let current = 0;
 let slides = document.querySelectorAll('.slide');
 let music = document.getElementById('music');
+let noBtn = document.getElementById('no');
+let noText = document.getElementById('noText');
 
 function start(){
   document.getElementById('welcome').style.opacity = '0';
@@ -252,7 +255,7 @@ function next(){
   if(current == slides.length - 1){
     document.getElementById('next').style.display = 'none';
     document.querySelector('.nav').style.display = 'none';
-    startKissing(); // Kiss animation start
+    flyKiss(); // Kiss animation
   }
 }
 
@@ -269,20 +272,43 @@ function accept(){
   slides[current].classList.remove('active');
   document.getElementById('finalSlide').classList.add('active');
   music.play();
-  startKissing();
+  flyKiss();
 }
 
-// KISSING HEARTS ANIMATION
-function startKissing(){
+// NO BUTTON BHAGEGA SCREEN PE
+document.addEventListener('mousemove', moveNo);
+document.addEventListener('touchmove', moveNo);
+function moveNo(e){
+  if(current!= 11) return; // sirf proposal page pe
+  let rect = noBtn.getBoundingClientRect();
+  let x = e.clientX || e.touches[0].clientX;
+  let y = e.clientY || e.touches[0].clientY;
+  let dist = Math.sqrt(Math.pow(x - rect.left - rect.width/2, 2) + Math.pow(y - rect.top - rect.height/2, 2));
+  if(dist < 150){
+    noText.style.display = 'block';
+    let newX = Math.random() * (window.innerWidth - 150);
+    let newY = Math.random() * (window.innerHeight - 200);
+    noBtn.style.left = newX + 'px';
+    noBtn.style.right = 'auto';
+    noBtn.style.top = newY + 'px';
+  }
+}
+
+// FLYING KISS ANIMATION
+function flyKiss(){
   setInterval(() => {
     let kiss = document.createElement("div");
-    kiss.innerHTML = "💋❤️";
-    kiss.className = "kiss";
-    kiss.style.left = Math.random() * 100 + "vw";
-    kiss.style.fontSize = Math.random() * 20 + 20 + "px";
-    document.getElementById('finalSlide').appendChild(kiss);
-    setTimeout(() => kiss.remove(), 4000);
-  }, 300);
+    kiss.innerHTML = "💋";
+    kiss.className = "flyingKiss";
+    kiss.style.left = '50%';
+    kiss.style.top = '50%';
+    let targetX = (Math.random() - 0.5) * window.innerWidth * 2 + 'px';
+    let targetY = (Math.random() - 0.5) * window.innerHeight * 2 + 'px';
+    kiss.style.setProperty('--x', targetX);
+    kiss.style.setProperty('--y', targetY);
+    document.body.appendChild(kiss);
+    setTimeout(() => kiss.remove(), 3000);
+  }, 500);
 }
 </script>
 
