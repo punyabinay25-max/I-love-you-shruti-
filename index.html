@@ -6,152 +6,161 @@
 <title>Shruti Kandhei My Jaan ❤️</title>
 <link rel="preload" href="shruti.mp3_1.mp3" as="audio">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #000; color: white; font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
 
-  /* 3D PARTICLE BG */
+  /* LIQUID HOLOGRAM BG */
   #particles { position: fixed; inset: 0; z-index: -2; }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(255,0,102,0.4) 0%, transparent 60%),
-                radial-gradient(circle at 70% 70%, rgba(255,0,150,0.3) 0%, transparent 60%);
-    animation: bgMove 15s infinite alternate; z-index: -1;
+ .aurora {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(255,0,102,0.4) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255,0,200,0.3) 0%, transparent 50%);
+    filter: blur(80px); animation: aurora 20s infinite alternate;
   }
-  @keyframes bgMove { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.4) rotate(10deg); } }
+  @keyframes aurora { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(360deg) scale(1.5); } }
 
   #welcome {
-    position: fixed; inset: 0; backdrop-filter: blur(50px);
-    background: rgba(0,0,0,0.7); display: flex; flex-direction: column;
+    position: fixed; inset: 0; backdrop-filter: blur(60px) saturate(180%);
+    background: rgba(0,0,0,0.5); display: flex; flex-direction: column;
     justify-content: center; align-items: center; z-index: 1000;
-    transition: all 1.5s cubic-bezier(0.4,0,0.2,1); padding: 20px;
+    transition: all 2s cubic-bezier(0.4,0,0.2,1); padding: 20px;
   }
   #welcome h1 {
-    font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900;
-    background: linear-gradient(135deg,#ff0066,#ff3399,#fff);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    animation: neon 2s infinite; text-align: center; letter-spacing: -2px;
+    font-size: clamp(2.8rem, 11vw, 4.5rem); font-weight: 900;
+    background: linear-gradient(135deg,#ff0066,#ff3399,#ff99cc,#fff);
+    background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: gradient 3s infinite, neon 2s infinite; text-align: center;
   }
-  #welcome h2 { font-size: clamp(1.2rem, 5vw, 1.8rem); margin: 20px 0; color: rgba(255,255,255,0.9); font-weight: 200; }
+  #welcome h2 { font-size: clamp(1.3rem, 5vw, 2rem); margin: 25px 0; font-weight: 100; letter-spacing: 3px; }
   #openBtn {
-    padding: 22px 55px; font-size: 1.4rem; border: none; border-radius: 18px; font-weight: 700;
+    padding: 24px 60px; font-size: 1.5rem; border: none; border-radius: 20px; font-weight: 800;
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white; cursor: pointer;
-    box-shadow: 0 0 50px rgba(255,0,102,0.6); transition: all 0.4s;
+    box-shadow: 0 0 60px rgba(255,0,102,0.7); transition: all 0.5s;
   }
-  #openBtn:active { transform: scale(0.92); }
-  @keyframes neon { 0%,100% { filter: drop-shadow(0 0 20px #ff0066) drop-shadow(0 0 40px #ff0066); } 50% { filter: drop-shadow(0 0 30px #ff99cc) drop-shadow(0 0 60px #ff99cc); } }
+  #openBtn:active { transform: scale(0.9); }
+  @keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+  @keyframes neon { 0%,100% { filter: drop-shadow(0 0 30px #ff0066); } 50% { filter: drop-shadow(0 0 60px #ff99cc); } }
 
 .slide {
     position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
-    flex-direction: column; padding: 20px 20px 130px 20px; opacity: 0;
-    transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
+    flex-direction: column; padding: 20px 20px 140px 20px; opacity: 0;
+    transition: all 1.5s cubic-bezier(0.4,0,0.2,1);
   }
-.slide.active { display: flex; opacity: 1; }
+.slide.active { display: flex; opacity: 1; animation: cinematic 1.5s; }
+  @keyframes cinematic { 0% { transform: scale(1.2); filter: blur(20px); } 100% { transform: scale(1); filter: blur(0); } }
 
 .content {
-    width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center;
-    background: rgba(255,255,255,0.06); backdrop-filter: blur(40px);
-    border: 1px solid rgba(255,255,255,0.15); border-radius: 35px;
-    padding: 35px 30px; box-shadow: 0 20px 80px rgba(0,0,0,0.5);
-    animation: slideUp 1s cubic-bezier(0.4,0,0.2,1);
+    width: 100%; max-width: 750px; display: flex; flex-direction: column; align-items: center;
+    background: rgba(255,255,255,0.04); backdrop-filter: blur(50px) saturate(200%);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 40px;
+    padding: 40px 35px; box-shadow: 0 30px 100px rgba(0,0,0,0.6);
   }
-  @keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 .photo {
-    width: 88vw; max-width: 450px; height: 52vh; border-radius: 25px;
-    object-fit: cover; margin-bottom: 25px;
-    box-shadow: 0 25px 70px rgba(255,0,102,0.4);
-    border: 2px solid rgba(255,255,255,0.1);
+    width: 90vw; max-width: 500px; height: 55vh; border-radius: 30px;
+    object-fit: cover; margin-bottom: 30px;
+    box-shadow: 0 30px 80px rgba(255,0,102,0.5);
+    border: 2px solid rgba(255,255,255,0.15); transition: all 0.8s;
   }
+.photo:hover { transform: scale(1.05); box-shadow: 0 40px 100px rgba(255,0,102,0.7); }
 
   h1 {
-    font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 18px; font-weight: 900;
+    font-size: clamp(2.2rem, 8vw, 3.2rem); margin-bottom: 20px; font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff99cc);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-align: center; letter-spacing: -1.5px;
+    text-align: center;
   }
   p {
-    font-size: clamp(1.1rem, 4vw, 1.3rem); line-height: 1.9;
-    opacity: 0.95; text-align: center; font-weight: 300;
+    font-size: clamp(1.15rem, 4vw, 1.35rem); line-height: 2;
+    opacity: 0.95; text-align: center; font-weight: 300; letter-spacing: 0.5px;
   }
 
 .nav {
-    position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 20px; z-index: 99;
+    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 25px; z-index: 99;
   }
 .btn {
-    padding: 18px 35px; font-size: 1.15rem; border: none; border-radius: 16px;
-    background: rgba(255,255,255,0.08); backdrop-filter: blur(30px);
-    border: 1px solid rgba(255,255,255,0.2); color: white;
-    cursor: pointer; font-weight: 700; transition: all 0.4s;
+    padding: 20px 40px; font-size: 1.2rem; border: none; border-radius: 18px;
+    background: rgba(255,255,255,0.06); backdrop-filter: blur(40px);
+    border: 1px solid rgba(255,255,255,0.25); color: white;
+    cursor: pointer; font-weight: 700; transition: all 0.5s;
   }
-.btn:hover { background: linear-gradient(135deg,#ff0066,#ff3399); transform: translateY(-4px) scale(1.05); }
-  #back { display: none; }
+.btn:hover { background: linear-gradient(135deg,#ff0066,#ff3399); transform: translateY(-5px); }
 
 .yesno {
-    display: flex; gap: 25px; margin-top: 35px;
-    position: relative; width: 100%; justify-content: center; height: 90px;
+    display: flex; gap: 30px; margin-top: 40px;
+    position: relative; width: 100%; justify-content: center; height: 100px;
   }
   #yes, #no {
-    padding: 20px 45px; font-size: 1.3rem; border-radius: 16px; font-weight: 800;
+    padding: 22px 50px; font-size: 1.4rem; border-radius: 18px; font-weight: 900;
     border: none; background: linear-gradient(135deg,#ff0066,#ff3399);
-    color: white; cursor: pointer; transition: all 0.4s;
-    position: absolute; box-shadow: 0 15px 40px rgba(255,0,102,0.4);
+    color: white; cursor: pointer; transition: all 0.5s;
+    position: absolute; box-shadow: 0 20px 50px rgba(255,0,102,0.5);
   }
   #yes { left: 0; }
   #no { right: 0; }
   #noText {
-    position: absolute; bottom: -40px; width: 100%;
-    text-align: center; font-size: 1rem; color: #ff99cc;
-    display: none; font-weight: 600;
+    position: absolute; bottom: -45px; width: 100%;
+    text-align: center; font-size: 1.1rem; color: #ff99cc;
+    display: none; font-weight: 700;
   }
 
   #collage {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
-    width: 96vw; max-width: 650px; margin-top: 25px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    width: 97vw; max-width: 700px; margin-top: 30px;
   }
   #collage img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 20px;
-    transition: all 0.5s; border: 2px solid rgba(255,255,255,0.1);
+    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 22px;
+    transition: all 0.6s; border: 2px solid rgba(255,255,255,0.15);
   }
-  #collage img:hover { transform: scale(1.15) rotate(5deg); box-shadow: 0 15px 40px rgba(255,0,102,0.5); }
+  #collage img:hover { transform: scale(1.2) rotate(8deg); box-shadow: 0 20px 50px rgba(255,0,102,0.6); }
   #loveText {
-    font-size: clamp(2.5rem, 11vw, 4.5rem); margin: 25px 0; font-weight: 900;
+    font-size: clamp(2.8rem, 12vw, 5rem); margin: 30px 0; font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff99cc,#fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    animation: pulse 1.8s infinite; text-align: center;
+    animation: pulse 1.5s infinite; text-align: center;
   }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
-  /* RED FINAL SCREEN */
+  /* RED FINAL SCREEN WITH FIREWORKS */
   #redScreen {
     position: fixed; inset: 0; background: #ff0066; display: none;
     justify-content: center; align-items: center; flex-direction: column;
-    z-index: 9999; animation: redFade 1s;
+    z-index: 9999; overflow: hidden;
   }
   #redScreen h1 {
-    font-size: clamp(3rem, 15vw, 8rem); color: white; font-weight: 900;
-    animation: heartBeat 1.2s infinite; text-align: center;
+    font-size: clamp(3.5rem, 18vw, 10rem); color: white; font-weight: 900;
+    animation: heartBeat 1s infinite; text-align: center; z-index: 2;
   }
-  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-  @keyframes redFade { from { opacity: 0; } to { opacity: 1; } }
+ .firework {
+    position: absolute; width: 10px; height: 10px; background: white;
+    border-radius: 50%; animation: firework 2s infinite;
+  }
+  @keyframes firework {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(20); opacity: 0; }
+  }
+  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
 
 .flyingKiss {
-    position: fixed; font-size: 70px; z-index: 9998; pointer-events: none;
-    animation: flyKiss 4s linear forwards; filter: drop-shadow(0 0 30px #ff0066);
+    position: fixed; font-size: 80px; z-index: 9998; pointer-events: none;
+    animation: flyKiss 5s linear forwards; filter: drop-shadow(0 0 40px #ff0066);
   }
   @keyframes flyKiss {
     0% { transform: translate(0,0) scale(1) rotate(0deg); }
-    100% { transform: translate(var(--x), var(--y)) scale(0.05) rotate(1080deg); opacity: 0; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.01) rotate(1440deg); opacity: 0; }
   }
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
+<div class="aurora"></div>
 
 <div id="welcome">
   <h1>Shruti Kandhei My Jaan</h1>
-  <h2>I Have A Surprise For You ❤️</h2>
+  <h2>I HAVE A SURPRISE FOR YOU</h2>
   <button id="openBtn" onclick="start()">Begin Journey</button>
 </div>
 
@@ -185,8 +194,8 @@
 
 <div class="slide" id="finalSlide">
   <div class="content">
-    <h1>And The Final Surprise 🎁</h1>
-    <p style="font-style: italic; margin: 25px 0;">
+    <h1>The Final Surprise 🎁</h1>
+    <p style="font-style: italic; margin: 30px 0;">
       "Teri ek jhalak ko tarasti hai meri aankhein Kandhei,<br>
       Tere naam se dhadakta hai mera dil Jaan,<br>
       Tu mil jaye to lagta hai,<br>
@@ -202,7 +211,6 @@
   </div>
 </div>
 
-<!-- RED FINAL SCREEN -->
 <div id="redScreen">
   <h1>I LOVE YOU ❤️</h1>
 </div>
@@ -221,8 +229,8 @@ let noText = document.getElementById('noText');
 
 function start(){
   document.getElementById('welcome').style.opacity = '0';
-  document.getElementById('welcome').style.transform = 'scale(0.9)';
-  setTimeout(()=>document.getElementById('welcome').style.display='none', 1500);
+  document.getElementById('welcome').style.transform = 'scale(0.8)';
+  setTimeout(()=>document.getElementById('welcome').style.display='none', 2000);
   music.play().catch(()=>{});
 }
 
@@ -252,15 +260,15 @@ function accept(){
   document.getElementById('finalSlide').classList.add('active');
   music.play();
   flyKiss();
-  // 3 sec baad red screen
   setTimeout(() => {
     document.getElementById('finalSlide').style.display = 'none';
     document.querySelector('.nav').style.display = 'none';
     document.getElementById('redScreen').style.display = 'flex';
+    startFireworks();
   }, 3000);
 }
 
-// NO BUTTON SIRF HILEGA GAYAB NAHI HOGA
+// NO BUTTON TELEPORT
 document.addEventListener('mousemove', moveNo);
 document.addEventListener('touchmove', moveNo);
 function moveNo(e){
@@ -269,24 +277,29 @@ function moveNo(e){
   let x = e.clientX || e.touches[0].clientX;
   let y = e.clientY || e.touches[0].clientY;
   let dist = Math.sqrt(Math.pow(x - rect.left - rect.width/2, 2) + Math.pow(y - rect.top - rect.height/2, 2));
-  if(dist < 100){
+  if(dist < 120){
     noText.style.display = 'block';
-    let offsetX = (Math.random() - 0.5) * 80;
-    let offsetY = (Math.random() - 0.5) * 80;
-    noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-    setTimeout(()=>{noBtn.style.transform = 'translate(0,0)'}, 400);
+    noBtn.style.opacity = '0';
+    setTimeout(()=>{
+      let newX = Math.random() * (window.innerWidth - 200) + 50;
+      let newY = Math.random() * (window.innerHeight - 300) + 100;
+      noBtn.style.left = newX + 'px';
+      noBtn.style.right = 'auto';
+      noBtn.style.top = newY + 'px';
+      noBtn.style.opacity = '1';
+    }, 200);
   }
 }
 
-// PARTICLES
+// 200 PARTICLES
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particles = [];
-for(let i=0; i<150; i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*3, dx:(Math.random()-0.5)*0.7, dy:(Math.random()-0.5)*0.7}) }
+for(let i=0; i<200; i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*4, dx:(Math.random()-0.5)*1, dy:(Math.random()-0.5)*1}) }
 function animateParticles(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = 'rgba(255,0,102,0.6)';
+  ctx.fillStyle = 'rgba(255,0,102,0.7)';
   particles.forEach(p => {
     ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
     p.x+=p.dx; p.y+=p.dy;
@@ -297,18 +310,30 @@ function animateParticles(){
 }
 animateParticles();
 
-// PRO FLYING KISS
+// FIREWORKS
+function startFireworks(){
+  setInterval(() => {
+    let fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.top = Math.random() * 100 + "vh";
+    document.getElementById('redScreen').appendChild(fw);
+    setTimeout(() => fw.remove(), 2000);
+  }, 300);
+}
+
+// 1440 DEGREE KISS
 function flyKiss(){
   setInterval(() => {
     let kiss = document.createElement("div");
     kiss.innerHTML = "💋";
     kiss.className = "flyingKiss";
     kiss.style.left = '50%'; kiss.style.top = '50%';
-    let targetX = (Math.random() - 0.5) * window.innerWidth * 3 + 'px';
-    let targetY = (Math.random() - 0.5) * window.innerHeight * 3 + 'px';
+    let targetX = (Math.random() - 0.5) * window.innerWidth * 4 + 'px';
+    let targetY = (Math.random() - 0.5) * window.innerHeight * 4 + 'px';
     kiss.style.setProperty('--x', targetX); kiss.style.setProperty('--y', targetY);
-    document.body.appendChild(kiss); setTimeout(() => kiss.remove(), 4000);
-  }, 350);
+    document.body.appendChild(kiss); setTimeout(() => kiss.remove(), 5000);
+  }, 300);
 }
 </script>
 </body>
