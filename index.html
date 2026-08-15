@@ -13,60 +13,68 @@
   }
   @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-  /* SURPRISE SCREEN */
+  /* OPEN PAGE CHOTA + BADA KIYA */
   #welcome {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: radial-gradient(circle, #000, #1a001a); display: flex; flex-direction: column; 
     justify-content: center; align-items: center; z-index: 1000; transition: opacity 1.5s;
   }
-  #welcome h1 { color: #ff0066; font-size: 2.5rem; animation: pulse 1.5s infinite; text-align: center; text-shadow: 0 0 20px #ff0066; }
-  #welcome p { color: white; margin-top: 20px; font-size: 1.1rem; }
+  #welcome h1 { color: #ff0066; font-size: 2.8rem; animation: pulse 1.5s infinite; text-align: center; text-shadow: 0 0 30px #ff0066; }
+  #welcome p { color: white; margin-top: 20px; font-size: 1.3rem; }
   #openBtn {
-    margin-top: 30px; padding: 20px 45px; font-size: 1.4rem; border: none; border-radius: 50px;
+    margin-top: 30px; padding: 22px 50px; font-size: 1.5rem; border: none; border-radius: 50px;
     background: linear-gradient(45deg, #ff0066, #ff99cc); color: white; cursor: pointer; font-weight: bold;
-    box-shadow: 0 0 40px rgba(255,0,102,0.9); animation: glow 2s infinite;
+    box-shadow: 0 0 50px rgba(255,0,102,1); animation: glow 2s infinite;
   }
   @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-  @keyframes glow { 0%,100% { box-shadow: 0 0 40px rgba(255,0,102,0.9); } 50% { box-shadow: 0 0 80px rgba(255,0,102,1); }
+  @keyframes glow { 0%,100% { box-shadow: 0 0 50px rgba(255,0,102,1); } 50% { box-shadow: 0 0 90px rgba(255,0,102,1); } }
 
- .layer {
+.layer {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; padding: 20px; color: white; opacity: 0;
-    transition: all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: scale(0.7) rotate(-5deg);
+    transition: all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: scale(0.7);
     pointer-events: none;
   }
- .layer.active { opacity: 1; transform: scale(1) rotate(0deg); pointer-events: all; }
+.layer.active { opacity: 1; transform: scale(1); pointer-events: all; }
 
-  /* PHOTO WITH ZOOM ANIMATION */
- .photo {
+.photo {
     width: 90vw; max-width: 400px; height: 50vh; max-height: 500px;
     border-radius: 30px; border: 6px solid white; object-fit: cover; margin-bottom: 20px;
     box-shadow: 0 0 60px rgba(255,255,255,1);
     animation: floatPhoto 4s ease-in-out infinite;
     transition: transform 1.5s ease-in-out;
   }
-  /* EYE ZOOM WALA CLASS */
- .photo.zoom { animation: eyeZoom 3s ease-in-out infinite; }
-  @keyframes floatPhoto { 0%,100% { transform: translateY(0px) rotate(-1deg); } 50% { transform: translateY(-25px) rotate(1deg); }
-  @keyframes eyeZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  /* ZOOM ANIMATIONS */
+.zoom-eyes { animation: eyeZoom 2.5s ease-in-out infinite; }
+.zoom-face { animation: faceZoom 2.5s ease-in-out infinite; }
+  @keyframes floatPhoto { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-25px); } }
+  @keyframes eyeZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); }
+  @keyframes faceZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); }
 
-  h1 { font-size: 2.3rem; margin-bottom: 12px; text-shadow: 3px 3px 20px rgba(0,0,0,0.5); animation: fadeInUp 1s; }
-  p { font-size: 1.3rem; margin-bottom: 30px; max-width: 90%; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); animation: fadeInUp 1.5s; }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); }
+  h1 { font-size: 2.3rem; margin-bottom: 12px; text-shadow: 3px 3px 20px rgba(0,0,0,0.5); }
+  p { font-size: 1.3rem; margin-bottom: 30px; max-width: 90%; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); }
 
-  /* BUTTONS */
- .btn-container { position: fixed; bottom: 40px; display: flex; gap: 20px; z-index: 999; }
- .btn {
+.btn-container { position: fixed; bottom: 40px; display: flex; gap: 20px; z-index: 999; }
+.btn {
     padding: 16px 32px; font-size: 1.2rem; border: none; border-radius: 50px;
     background: white; color: #ff0066; cursor: pointer; font-weight: bold;
     box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: all 0.3s;
   }
- .btn:active { transform: scale(0.9); }
+.btn:active { transform: scale(0.9); }
   #backBtn { display: none; }
 
-  /* BHAR BHAR GRAPHICS */
- .heart,.sparkle,.star,.rose { position: absolute; animation: float 10s infinite linear; z-index: -1; }
+  /* LAST PAGE YES NO BUTTON */
+ #lastPage { text-align: center; }
+ #yesNoBtns { display: flex; gap: 20px; justify-content: center; }
+ #yesBtn, #noBtn {
+    padding: 18px 40px; font-size: 1.4rem; border: none; border-radius: 50px;
+    background: white; color: #ff0066; cursor: pointer; font-weight: bold;
+    transition: all 0.3s; position: relative;
+  }
+ #noBtn:hover { transform: translateY(-100px); } /* NO bhaag jayega */
+
+.heart,.sparkle,.star,.rose { position: absolute; animation: float 10s infinite linear; z-index: -1; }
   @keyframes float { 0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 1; } 100% { transform: translateY(-10vh) rotate(1080deg) scale(2); opacity: 0; } }
 </style>
 </head>
@@ -82,65 +90,70 @@
 <!-- MP3 SONG -->
 <audio id="bgMusic" src="shruti.mp3" loop></audio>
 
-<!-- 10 LAYERS - 10 PHOTO -->
+<!-- 10 LAYERS - 10 ALAG PHOTO + ALAG MESSAGE -->
 <div class="layer active">
-  <img src="shruti 1.jpg" class="photo" alt="Shruti">
+  <img src="shruti%201.jpg" class="photo zoom-face" alt="Shruti"> <!-- FACE ZOOM -->
   <h1>I Love You Shruti ❤️</h1>
-  <p>Tumhari ek jhalak ke liye main 100 baar janam lu</p>
+  <p>Tumhara chehra dekh ke din ban jata hai mera</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 2.jpg" class="photo" alt="Shruti">
+  <img src="shruti%202.jpg" class="photo" alt="Shruti">
   <h1>Tum ho to...</h1>
   <p>Meri duniya me rang hi rang hain. Tum meri duniya ho</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 3.jpg" class="photo zoom" alt="Shruti"> <!-- EYE ZOOM -->
+  <img src="shruti%203.jpg" class="photo zoom-eyes" alt="Shruti"> <!-- EYE ZOOM -->
   <h1>Tumhari Aankhein ❤️</h1>
   <p>Doob jaata hu har baar. Sabse khoobsurat nasha tumhari aankhon me hai</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 4.jpg" class="photo" alt="Shruti">
+  <img src="shruti%204.jpg" class="photo" alt="Shruti">
   <h1>My Heartbeat</h1>
   <p>Har dhadkan me sirf tumhara naam hai</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 5.jpg" class="photo" alt="Shruti">
+  <img src="shruti%205.jpg" class="photo zoom-face" alt="Shruti"> <!-- FACE ZOOM -->
   <h1>Tumhari Smile</h1>
   <p>Uss smile ke saamne duniya ki saari khushiyan kam hain</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 6.jpg" class="photo zoom" alt="Shruti"> <!-- EYE ZOOM -->
+  <img src="shruti%206.jpg" class="photo zoom-eyes" alt="Shruti"> <!-- EYE ZOOM -->
   <h1>Aankhon Me Nasha</h1>
   <p>Tumhari aankhein baat karti hain, aur dil behosh ho jata hai</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 7.jpg" class="photo" alt="Shruti">
+  <img src="shruti%207.jpg" class="photo" alt="Shruti">
   <h1>You Are Magic</h1>
   <p>Tum aayi aur meri life ki har problem solve ho gayi</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 8.jpg" class="photo" alt="Shruti">
+  <img src="shruti%208.jpg" class="photo zoom-face" alt="Shruti"> <!-- FACE ZOOM -->
   <h1>Promise Karo</h1>
   <p>Kabhi saath nahi chhodogi na? Main bhi nahi chhodunga</p>
 </div>
 
 <div class="layer">
-  <img src="shruti 9.jpg" class="photo" alt="Shruti">
+  <img src="shruti%209.jpg" class="photo" alt="Shruti">
   <h1>Future With You</h1>
   <p>Tumhara haath aur mera haath. Bas yahi chahiye zindagi bhar</p>
 </div>
 
-<div class="layer">
-  <img src="shruti 10.jpg" class="photo" alt="Shruti">
-  <h1>Forever & Always ❤️</h1>
-  <p>I Love You Shruti. Aaj bhi, kal bhi, hamesha bhi</p>
+<!-- LAST PAGE WITH YES NO -->
+<div class="layer" id="lastPage">
+  <img src="shruti%2010.jpg" class="photo" alt="Shruti">
+  <h1>Last Sawal ❤️</h1>
+  <p>Do You Love Me?</p>
+  <div id="yesNoBtns">
+    <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
+    <button id="noBtn">No 😢</button>
+  </div>
 </div>
 
 <!-- BUTTONS -->
@@ -154,6 +167,8 @@
   const layers = document.querySelectorAll('.layer');
   const music = document.getElementById('bgMusic');
   const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const btnContainer = document.querySelector('.btn-container');
 
   function openSurprise(){
     document.getElementById('welcome').style.opacity = '0';
@@ -167,8 +182,10 @@
     if(currentLayer >= layers.length) currentLayer = layers.length - 1;
     layers[currentLayer].classList.add('active');
     backBtn.style.display = 'block';
+    
     if(currentLayer === layers.length - 1){
-      document.getElementById('nextBtn').innerText = "🔁 Wapas";
+      nextBtn.style.display = 'none';
+      btnContainer.style.display = 'none';
     }
   }
 
@@ -177,8 +194,18 @@
     currentLayer--;
     if(currentLayer < 0) currentLayer = 0;
     layers[currentLayer].classList.add('active');
-    document.getElementById('nextBtn').innerText = "Next ➡️";
+    nextBtn.style.display = 'block';
+    btnContainer.style.display = 'flex';
     if(currentLayer === 0) backBtn.style.display = 'none';
+  }
+
+  function sayYes(){
+    document.getElementById('lastPage').innerHTML = `
+      <img src="shruti%2010.jpg" class="photo" alt="Shruti">
+      <h1>I Knew It! ❤️</h1>
+      <p>I Love You Too Shruti! <br> Tum meri ho, main tumhara hu. <br> Forever and Always!</p>
+    `;
+    music.play();
   }
 
   // BHAR BHAR GRAPHICS
