@@ -3,234 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Shruti Bubu Kandhei My Jaan ❤️</title>
+<title>For Shruti Kandhei My Jaan ❤️</title>
 <link rel="preload" href="shruti.mp3_1.mp3" as="audio">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  body { background: #000; color: white; font-family: 'Poppins', sans-serif; overflow: hidden; height: 100vh; }
+  body { background: #000; color: white; font-family: 'Inter', sans-serif; overflow: hidden; height: 100vh; }
+
+  /* PRO GLASS BACKGROUND */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,0,102,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,153,204,0.2) 0%, transparent 50%);
+    animation: bgMove 20s infinite alternate;
+    z-index: -1;
+  }
+  @keyframes bgMove { 0% { transform: scale(1); } 100% { transform: scale(1.3); } }
 
   #welcome {
-    position: fixed; inset: 0; background: radial-gradient(circle at 50% 30%, #ff0066 0%, #000 70%);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    z-index: 1000; transition: opacity 1.5s; padding: 20px;
+    position: fixed; inset: 0; backdrop-filter: blur(40px);
+    background: rgba(0,0,0,0.6); display: flex; flex-direction: column;
+    justify-content: center; align-items: center; z-index: 1000;
+    transition: all 1.5s cubic-bezier(0.4,0,0.2,1); padding: 20px;
   }
-  #welcome h1 { font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 700; background: linear-gradient(90deg,#fff,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glow 2s infinite; text-align: center; }
-  #welcome h2 { font-size: clamp(1.1rem, 4.5vw, 1.6rem); margin: 12px 0; color: #ff99cc; animation: fadeInUp 1.5s; text-align: center; }
-  #welcome p { font-size: clamp(1rem, 4vw, 1.3rem); margin: 10px 0 30px; opacity: 0.8; text-align: center; animation: fadeInUp 2s; }
+  #welcome h1 {
+    font-size: clamp(2.2rem, 9vw, 3.8rem); font-weight: 900;
+    background: linear-gradient(135deg,#ff0066,#ff99cc,#fff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: glow 3s infinite; text-align: center; letter-spacing: -1px;
+  }
+  #welcome h2 {
+    font-size: clamp(1.2rem, 5vw, 1.8rem); margin: 20px 0;
+    color: rgba(255,255,255,0.9); animation: fadeInUp 1.5s;
+    font-weight: 300; text-align: center;
+  }
   #openBtn {
-    padding: 18px 45px; font-size: clamp(1.1rem, 5vw, 1.5rem); border: none; border-radius: 60px;
-    background: linear-gradient(90deg,#ff0066,#ff3399); color: white; cursor: pointer; font-weight: 600;
-    box-shadow: 0 0 40px rgba(255,0,102,0.8); transition: 0.3s; animation: fadeInUp 2.5s;
+    padding: 20px 50px; font-size: clamp(1.1rem, 5vw, 1.4rem);
+    border: none; border-radius: 16px; font-weight: 700;
+    background: linear-gradient(135deg,#ff0066,#ff3399);
+    color: white; cursor: pointer; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 10px 40px rgba(255,0,102,0.4); animation: fadeInUp 2s;
   }
   #openBtn:active { transform: scale(0.95); }
-  @keyframes glow { 0%,100% { filter: drop-shadow(0 0 15px #ff0066); } 50% { filter: drop-shadow(0 0 35px #ff99cc); } }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes glow { 0%,100% { filter: drop-shadow(0 0 20px #ff0066); } 50% { filter: drop-shadow(0 0 40px #ff99cc); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 .slide {
-    position: fixed; inset: 0; display: none; justify-content: space-between; align-items: center;
-    flex-direction: column; padding: 20px 20px 110px 20px; opacity: 0; transition: opacity 1s ease;
-    background: linear-gradient(180deg, #000 0%, #1a001a 100%);
+    position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
+    flex-direction: column; padding: 20px 20px 120px 20px; opacity: 0;
+    transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
   }
-.slide.active { display: flex; opacity: 1; animation: fadeIn 1s; }
-  @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.slide.active { display: flex; opacity: 1; transform: scale(1); }
 
 .content {
-    width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 4vh;
-    overflow-y: auto; padding-bottom: 10px;
+    width: 100%; max-width: 650px; display: flex; flex-direction: column; align-items: center;
+    background: rgba(255,255,255,0.05); backdrop-filter: blur(30px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 30px;
+    padding: 30px 25px; animation: slideUp 1s;
   }
+  @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 .photo {
-    width: 90vw; max-width: 400px; height: 45vh; border-radius: 25px;
-    object-fit: cover; margin-bottom: 20px; border: 3px solid rgba(255,0,102,0.6);
-    box-shadow: 0 10px 40px rgba(255,0,102,0.5); animation: float 4s ease-in-out infinite;
+    width: 85vw; max-width: 420px; height: 50vh; border-radius: 20px;
+    object-fit: cover; margin-bottom: 25px;
+    box-shadow: 0 20px 60px rgba(255,0,102,0.3);
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
   }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+ .photo:hover { transform: scale(1.03); }
 
-  h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); margin-bottom: 12px; font-weight: 700; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
-  p { font-size: clamp(1rem, 4vw, 1.2rem); line-height: 1.7; opacity: 0.95; text-align: center; max-width: 600px; }
+  h1 {
+    font-size: clamp(1.9rem, 7vw, 2.8rem); margin-bottom: 15px;
+    font-weight: 900; background: linear-gradient(135deg,#ff0066,#ff99cc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-align: center; letter-spacing: -1px;
+  }
+  p {
+    font-size: clamp(1.05rem, 4vw, 1.25rem); line-height: 1.8;
+    opacity: 0.95; text-align: center; font-weight: 300;
+  }
 
 .nav {
-    position: fixed; bottom: 0; left: 0; width: 100%; padding: 20px;
-    display: flex; justify-content: space-between; gap: 15px; background: linear-gradient(0deg, #000 90%, transparent 100%);
-    z-index: 99;
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 15px; z-index: 99;
   }
 .btn {
-    flex: 1; padding: 16px 20px; font-size: clamp(1rem, 4.5vw, 1.2rem); border: none; border-radius: 50px;
-    background: linear-gradient(90deg,#ff0066,#ff3399); color: white; cursor: pointer; font-weight: 600;
-    box-shadow: 0 5px 20px rgba(255,0,102,0.6); transition: 0.3s;
+    padding: 16px 32px; font-size: 1.1rem; border: none; border-radius: 14px;
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.2); color: white;
+    cursor: pointer; font-weight: 600; transition: all 0.3s;
   }
-.btn:active { transform: scale(0.95); }
-  #back { background: rgba(255,255,255,0.1); border: 2px solid #ff0066; display: none; }
+.btn:hover { background: linear-gradient(135deg,#ff0066,#ff3399); transform: translateY(-3px); }
+  #back { display: none; }
 
-.yesno { display: flex; gap: 15px; margin-top: 25px; width: 100%; justify-content: center; position: relative; height: 100px; }
-  #yes, #no {
-    padding: 16px 35px; font-size: clamp(1.1rem, 5vw, 1.3rem); border-radius: 50px;
-    border: none; background: linear-gradient(90deg,#ff0066,#ff3399); color: white; cursor: pointer; font-weight: 600;
-    transition: 0.3s; position: absolute;
+.yesno {
+    display: flex; gap: 20px; margin-top: 30px;
+    position: relative; width: 100%; justify-content: center; height: 80px;
   }
-  #yes { left: 15%; }
-  #no { right: 15%; }
-  #noText { position: absolute; bottom: -30px; font-size: 0.9rem; color: #ff99cc; display: none; }
+  #yes, #no {
+    padding: 18px 40px; font-size: 1.2rem; border-radius: 14px; font-weight: 700;
+    border: none; background: linear-gradient(135deg,#ff0066,#ff3399);
+    color: white; cursor: pointer; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    position: absolute; box-shadow: 0 10px 30px rgba(255,0,102,0.3);
+  }
+  #yes { left: 0; }
+  #no { right: 0; }
+  #noText {
+    position: absolute; bottom: -35px; width: 100%;
+    text-align: center; font-size: 0.95rem; color: #ff99cc;
+    display: none; font-weight: 500;
+  }
 
   #collage {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    width: 95vw; max-width: 500px; margin-top: 15px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    width: 95vw; max-width: 600px; margin-top: 20px;
   }
   #collage img {
-    width: 100%; aspect-ratio: 1/1.2; object-fit: cover; border-radius: 15px;
-    border: 2px solid rgba(255,0,102,0.4);
+    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px;
+    transition: all 0.4s; cursor: pointer;
   }
-  #loveText { font-size: clamp(2rem, 10vw, 3.5rem); margin: 15px 0; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1.5s infinite; text-align: center; }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  #collage img:hover { transform: scale(1.1) rotate(3deg); box-shadow: 0 10px 30px rgba(255,0,102,0.4); }
+  #loveText {
+    font-size: clamp(2.2rem, 10vw, 4rem); margin: 20px 0;
+    font-weight: 900; background: linear-gradient(135deg,#ff0066,#ff99cc,#fff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite; text-align: center;
+  }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
 .flyingKiss {
-    position: fixed; font-size: 50px; z-index: 9999; pointer-events: none;
-    animation: flyKiss 3s linear forwards;
+    position: fixed; font-size: 60px; z-index: 9999; pointer-events: none;
+    animation: flyKiss 3.5s linear forwards; filter: drop-shadow(0 0 20px #ff0066);
   }
   @keyframes flyKiss {
-    0% { transform: translate(0,0) scale(1); }
-    100% { transform: translate(var(--x), var(--y)) scale(0.2); opacity: 0; }
+    0% { transform: translate(0,0) scale(1) rotate(0deg); }
+    100% { transform: translate(var(--x), var(--y)) scale(0.1) rotate(720deg); opacity: 0; }
   }
 </style>
 </head>
 <body>
 
 <div id="welcome">
-  <h1>Shruti Bubu Kandhei My Jaan</h1>
-  <h2>I Have A Surprise For You My Love ❤️</h2>
-  <p>Tumhare liye dil se banaya hai bubu</p>
-  <button id="openBtn" onclick="start()">Touch To Open</button>
+  <h1>Shruti Kandhei My Jaan</h1>
+  <h2>I Have A Surprise For You ❤️</h2>
+  <button id="openBtn" onclick="start()">Begin Journey</button>
 </div>
 
 <audio id="music" src="shruti.mp3_1.mp3" preload="auto" loop></audio>
 
 <!-- 10 TO 1 PHOTO SLIDES -->
-<div class="slide active">
-  <div class="content">
-    <img src="shruti%2010.jpg" class="photo" loading="lazy">
-    <h1>Chapter 10</h1>
-    <p>My Bubu Kandhei, tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi. I love you so much jaan.</p>
-  </div>
-</div>
+<div class="slide active"><div class="content"><img src="shruti%2010.jpg" class="photo"><h1>Chapter 10</h1><p>My Jaan Kandhei, tumhare bina main adhura hu. Tum meri life ho, meri duniya ho, aur meri sabse badi dua ho jo qubool ho gayi. I love you endlessly.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%209.jpg" class="photo"><h1>Chapter 9</h1><p>Kandhei, main apna future sirf tumhare saath dekhna chahta hu. Tumhara haath pakad ke shaadi, ghar, sab kuch. Tum meri manzil ho aur main tumhara safar banna chahta hu.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%208.jpg" class="photo"><h1>Chapter 8</h1><p>My Jaan Shruti, main waada karta hu ki chahe duniya idhar ki udhar ho jaye, hum dono hamesha ek saath rahenge. Tum mera sab kuch ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%207.jpg" class="photo"><h1>Chapter 7</h1><p>Jab tum saath ho Kandhei to koi dikkat nahi lagti. Tum meri sabse badi taakat ho. Main promise karta hu main hamesha tumhara sahara banunga.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%206.jpg" class="photo"><h1>Chapter 6</h1><p>Kandhei Jaan, tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki saccha pyar kya hota hai. Tum mere liye ek jaadu ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%205.jpg" class="photo"><h1>Chapter 5</h1><p>My Jaan, tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho Kandhei to lagta hai jaise mere life me roshni aa gayi ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%204.jpg" class="photo"><h1>Chapter 4</h1><p>Shruti Jaan, har dhadkan me sirf tumhara naam hai. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%203.jpg" class="photo"><h1>Chapter 3</h1><p>Kandhei, tumhari aankhon me ek alag hi nasha hai. Jab tum mujhe dekhti ho to dil ki dhadkan tez ho jaati hai aur main usi pal me kho jaata hu.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti2.jpg" class="photo"><h1>Chapter 2</h1><p>My Jaan Shruti, tumhare saath bitaaya hua har pal sabse keemti hai. Tum meri khushi ki wajah ho aur meri life ka sabse khoobsurat hissa.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti%201.jpg" class="photo"><h1>Chapter 1</h1><p>Kandhei, tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai. I love you my jaan so much.</p></div></div>
 
-<div class="slide">
-  <div class="content">
-    <img src="shruti%209.jpg" class="photo" loading="lazy">
-    <h1>Chapter 9</h1>
-    <p>Kandhei, main apna future sirf tumhare saath imagine karta hu. Tumhara haath pakad ke shaadi, ghar, sab kuch. Tum meri manzil ho aur main tumhara safar banna chahta hu bubu.</p>
-  </div>
-</div>
+<div class="slide" id="lovePage"><div class="content"><h1>I LOVE YOU SHRUTI ❤️</h1><p>My Kandhei Jaan, itna sab kehne ke baad bhi ek baat baaki hai. Main tumse behad pyar karta hu. Har pal, har saans me sirf tum ho.</p></div></div>
 
-<div class="slide">
-  <div class="content">
-    <img src="shruti%208.jpg" class="photo" loading="lazy">
-    <h1>Chapter 8</h1>
-    <p>My Jaan Shruti, main waada karta hu ki chahe kitni bhi problems aayein, hum dono hamesha ek saath rahenge. Tum mera sab kuch ho aur main tumhara hamesha.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%207.jpg" class="photo" loading="lazy">
-    <h1>Chapter 7</h1>
-    <p>Bubu, jab tum saath ho to koi dikkat nahi lagti. Tum meri sabse badi taakat ho Kandhei. Main promise karta hu main hamesha tumhara sabse bada sahara banunga.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%206.jpg" class="photo" loading="lazy">
-    <h1>Chapter 6</h1>
-    <p>Kandhei Jaan, tum aayi aur meri life badal gayi. Tumne mujhe sikhaya ki pyar kya hota hai. Tum mere liye ek jaadu ho jo kabhi khatam na ho mere bubu.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%205.jpg" class="photo" loading="lazy">
-    <h1>Chapter 5</h1>
-    <p>My Bubu, tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho Kandhei to lagta hai jaise mere life me roshni aa gayi ho.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%204.jpg" class="photo" loading="lazy">
-    <h1>Chapter 4</h1>
-    <p>Shruti Jaan, har dhadkan me sirf tumhara naam hai. Subah uthte hi tumhari yaad aur raat ko sone se pehle bhi last thought tum hi hoti ho meri bubu kandhei.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti%203.jpg" class="photo" loading="lazy">
-    <h1>Chapter 3</h1>
-    <p>Kandhei, tumhari aankhon me ek alag hi nasha hai. Jab tum mujhe dekhti ho bubu to dil ki dhadkan tez ho jaati hai aur main usi pal me kho jaata hu.</p>
-  </div>
-</div>
-
-<div class="slide">
-  <div class="content">
-    <img src="shruti2.jpg" class="photo" loading="lazy">
-    <h1>Chapter 2</h1>
-    <p>My Jaan Shruti Bubu, tumhare saath bitaaya hua har pal sabse keemti hai. Tum meri khushi ki wajah ho aur meri life ka sabse khoobsurat hissa kandhei.</p>
-  </div>
-</div>
-
-<!-- IMAGE 1 LAST -->
-<div class="slide">
-  <div class="content">
-    <img src="shruti%201.jpg" class="photo" loading="lazy">
-    <h1>Chapter 1</h1>
-    <p>Bubu Kandhei, tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai. I love you my jaan so much.</p>
-  </div>
-</div>
-
-<!-- I LOVE YOU PAGE -->
-<div class="slide" id="lovePage">
-  <div class="content">
-    <h1>I LOVE YOU SHRUTI BUBU ❤️</h1>
-    <p>My Kandhei Jaan, itna sab kehne ke baad bhi ek baat baaki hai. Main tumse behad pyar karta hu. Har pal, har saans me sirf tum ho bubu.</p>
-  </div>
-</div>
-
-<!-- PROPOSAL PAGE -->
 <div class="slide" id="proposal">
   <div class="content">
-    <h1>Kandhei...</h1>
-    <p>Will you be mine forever Bubu? Kya tum mera saath zindagi bhar dogi Jaan? Kya tum meri girlfriend, meri best friend, meri life partner banogi Shruti?</p>
+    <h1>Shruti Kandhei...</h1>
+    <p>Will you be mine forever Jaan? Kya tum mera saath zindagi bhar dogi? Kya tum meri life partner banogi?</p>
     <div class="yesno">
       <button id="yes" onclick="accept()">Yes ❤️</button>
       <button id="no">No 😢</button>
-      <div id="noText">Dubara soch lo bubu 🥺</div>
+      <div id="noText">Please dubara soch lo 🥺</div>
     </div>
   </div>
 </div>
 
-<!-- FINAL SURPRISE + SHAYARI + COLLAGE -->
 <div class="slide" id="finalSlide">
   <div class="content">
-    <h1>Aur Sabse Bada Surprise Bubu 🎁</h1>
-    <p style="font-style: italic; margin: 15px 0;">
+    <h1>And The Final Surprise 🎁</h1>
+    <p style="font-style: italic; margin: 20px 0;">
       "Teri ek jhalak ko tarasti hai meri aankhein Kandhei,<br>
-      Tere naam se dhadakta hai mera dil Bubu,<br>
+      Tere naam se dhadakta hai mera dil Jaan,<br>
       Tu mil jaye to lagta hai,<br>
-      Jannat mil gayi mujhe is zameen pe Jaan."
+      Jannat mil gayi mujhe is zameen pe."
     </p>
-    <h1>I LOVE YOU SHRUTI BUBU KANDHEI ❤️</h1>
+    <h1>I LOVE YOU SHRUTI KANDHEI ❤️</h1>
     <div id="collage">
-      <img src="shruti%2010.jpg" loading="lazy"><img src="shruti%209.jpg" loading="lazy"><img src="shruti%208.jpg" loading="lazy">
-      <img src="shruti%207.jpg" loading="lazy"><img src="shruti%206.jpg" loading="lazy"><img src="shruti%205.jpg" loading="lazy">
-      <img src="shruti%204.jpg" loading="lazy"><img src="shruti%203.jpg" loading="lazy"><img src="shruti2.jpg" loading="lazy"><img src="shruti%201.jpg" loading="lazy">
+      <img src="shruti%2010.jpg"><img src="shruti%209.jpg"><img src="shruti%208.jpg">
+      <img src="shruti%207.jpg"><img src="shruti%206.jpg"><img src="shruti%205.jpg">
+      <img src="shruti%204.jpg"><img src="shruti%203.jpg"><img src="shruti2.jpg"><img src="shruti%201.jpg">
     </div>
-    <h1 id="loveText">LOVE YOU BUBU KANDHEI ❤️</h1>
+    <h1 id="loveText">LOVE YOU KANDHEI ❤️</h1>
   </div>
 </div>
 
 <div class="nav">
-  <button id="back" class="btn" onclick="prev()">⬅️ Back</button>
-  <button id="next" class="btn" onclick="next()">Next ➡️</button>
+  <button id="back" class="btn" onclick="prev()">← Back</button>
+  <button id="next" class="btn" onclick="next()">Next →</button>
 </div>
 
 <script>
@@ -242,6 +209,7 @@ let noText = document.getElementById('noText');
 
 function start(){
   document.getElementById('welcome').style.opacity = '0';
+  document.getElementById('welcome').style.transform = 'scale(0.9)';
   setTimeout(()=>document.getElementById('welcome').style.display='none', 1500);
   music.play().catch(()=>{});
 }
@@ -274,6 +242,7 @@ function accept(){
   flyKiss();
 }
 
+// NO BUTTON SCREEN KE ANDAR HI BHAGEGA
 document.addEventListener('mousemove', moveNo);
 document.addEventListener('touchmove', moveNo);
 function moveNo(e){
@@ -282,32 +251,32 @@ function moveNo(e){
   let x = e.clientX || e.touches[0].clientX;
   let y = e.clientY || e.touches[0].clientY;
   let dist = Math.sqrt(Math.pow(x - rect.left - rect.width/2, 2) + Math.pow(y - rect.top - rect.height/2, 2));
-  if(dist < 150){
+  if(dist < 120){
     noText.style.display = 'block';
-    let newX = Math.random() * (window.innerWidth - 150);
-    let newY = Math.random() * (window.innerHeight - 200);
+    let padding = 20;
+    let maxX = window.innerWidth - rect.width - padding;
+    let maxY = window.innerHeight - rect.height - 150;
+    let newX = Math.random() * maxX + padding;
+    let newY = Math.random() * maxY + 100;
     noBtn.style.left = newX + 'px';
     noBtn.style.right = 'auto';
     noBtn.style.top = newY + 'px';
   }
 }
 
+// PRO FLYING KISS
 function flyKiss(){
   setInterval(() => {
     let kiss = document.createElement("div");
     kiss.innerHTML = "💋";
     kiss.className = "flyingKiss";
-    kiss.style.left = '50%';
-    kiss.style.top = '50%';
-    let targetX = (Math.random() - 0.5) * window.innerWidth * 2 + 'px';
-    let targetY = (Math.random() - 0.5) * window.innerHeight * 2 + 'px';
-    kiss.style.setProperty('--x', targetX);
-    kiss.style.setProperty('--y', targetY);
-    document.body.appendChild(kiss);
-    setTimeout(() => kiss.remove(), 3000);
-  }, 500);
+    kiss.style.left = '50%'; kiss.style.top = '50%';
+    let targetX = (Math.random() - 0.5) * window.innerWidth * 2.5 + 'px';
+    let targetY = (Math.random() - 0.5) * window.innerHeight * 2.5 + 'px';
+    kiss.style.setProperty('--x', targetX); kiss.style.setProperty('--y', targetY);
+    document.body.appendChild(kiss); setTimeout(() => kiss.remove(), 3500);
+  }, 400);
 }
 </script>
-
 </body>
 </html>
