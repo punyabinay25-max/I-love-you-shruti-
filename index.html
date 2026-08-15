@@ -12,57 +12,52 @@
   #particles { position: fixed; inset: 0; z-index: -1; }
 .aurora {
     position: fixed; inset: 0; z-index: -1;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(255,0,102,0.4) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255,0,200,0.3) 0%, transparent 50%);
-    filter: blur(100px); animation: aurora 20s infinite alternate;
+    background: radial-gradient(circle at 30% 40%, rgba(255,0,102,0.4) 0%, transparent 60%);
+    filter: blur(120px); animation: aurora 20s infinite alternate;
   }
-  @keyframes aurora { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(360deg) scale(1.5); } }
+  @keyframes aurora { 0% { transform: scale(1); } 100% { transform: scale(1.5); } }
 
   #welcome {
-    position: fixed; inset: 0; backdrop-filter: blur(60px) saturate(180%);
-    background: rgba(0,0,0,0.5); display: flex; flex-direction: column;
+    position: fixed; inset: 0; backdrop-filter: blur(60px);
+    background: rgba(0,0,0,0.6); display: flex; flex-direction: column;
     justify-content: center; align-items: center; z-index: 1000;
-    transition: all 2s cubic-bezier(0.4,0,0.2,1); padding: 20px;
+    transition: all 2s; padding: 20px;
   }
   #welcome h1 {
     font-size: clamp(2.8rem, 11vw, 4.5rem); font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff3399,#ff99cc,#fff);
-    background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    animation: gradient 3s infinite, neon 2s infinite; text-align: center;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: gradient 3s infinite; text-align: center;
   }
-  #welcome h2 { font-size: clamp(1.3rem, 5vw, 2rem); margin: 25px 0; font-weight: 100; letter-spacing: 3px; text-align: center; }
+  #welcome h2 { font-size: clamp(1.3rem, 5vw, 2rem); margin: 25px 0; font-weight: 100; text-align: center; }
   #openBtn {
     padding: 24px 60px; font-size: 1.5rem; border: none; border-radius: 20px; font-weight: 800;
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white; cursor: pointer;
-    box-shadow: 0 0 60px rgba(255,0,102,0.7); transition: all 0.5s;
+    box-shadow: 0 0 60px rgba(255,0,102,0.7);
   }
-  #openBtn:active { transform: scale(0.9); }
   @keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-  @keyframes neon { 0%,100% { filter: drop-shadow(0 0 30px #ff0066); } 50% { filter: drop-shadow(0 0 60px #ff99cc); } }
 
 .slide {
-    position: fixed; inset: 0; display: none; justify-content: center; align-items: flex-start;
-    flex-direction: column; padding: 20px 20px 140px 20px; opacity: 0;
-    transition: all 1.5s cubic-bezier(0.4,0,0.2,1);
+    position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
+    flex-direction: column; padding: 20px; opacity: 0; overflow-y: auto;
+    padding-bottom: 160px; /* NAV KE LIYE JAGAH */
+    transition: all 1.5s;
   }
-.slide.active { display: flex; opacity: 1; animation: cinematic 1.5s; }
-  @keyframes cinematic { 0% { transform: scale(1.2); filter: blur(20px); } 100% { transform: scale(1); filter: blur(0); } }
+.slide.active { display: flex; opacity: 1; }
 
 .content {
-    width: 100%; max-width: 750px; margin: 0 auto 0 auto; display: flex; flex-direction: column; align-items: center;
-    background: rgba(255,255,255,0.04); backdrop-filter: blur(50px) saturate(200%);
-    border: 1px solid rgba(255,255,255,0.2); border-radius: 40px;
-    padding: 40px 35px; box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+    width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center;
+    background: rgba(255,255,255,0.04); backdrop-filter: blur(50px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 35px;
+    padding: 30px 25px;
   }
 
 .photo {
-    width: 90vw; max-width: 500px; height: 55vh; border-radius: 30px;
-    object-fit: cover; margin-bottom: 30px;
-    box-shadow: 0 30px 80px rgba(255,0,102,0.5);
-    border: 2px solid rgba(255,255,255,0.15); transition: all 0.8s;
+    width: 100%; max-width: 480px; height: 50vh; border-radius: 25px;
+    object-fit: cover; margin-bottom: 25px;
+    box-shadow: 0 25px 70px rgba(255,0,102,0.5);
+    border: 2px solid rgba(255,255,255,0.15);
   }
-.photo:hover { transform: scale(1.05); }
 
   h1 {
     font-size: clamp(2.2rem, 8vw, 3.2rem); margin-bottom: 20px; font-weight: 900;
@@ -71,52 +66,51 @@
     text-align: center;
   }
   p {
-    font-size: clamp(1.15rem, 4vw, 1.35rem); line-height: 2;
-    opacity: 0.95; text-align: center; font-weight: 300; letter-spacing: 0.5px;
+    font-size: clamp(1.1rem, 4vw, 1.3rem); line-height: 1.9;
+    opacity: 0.95; text-align: center; font-weight: 300;
   }
 
+/* NAV FIX - OVERLAP KHATAM */
 .nav {
-    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 25px; z-index: 99;
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 20px; z-index: 999;
   }
 .btn {
-    padding: 20px 40px; font-size: 1.2rem; border: none; border-radius: 18px;
-    background: rgba(255,255,255,0.06); backdrop-filter: blur(40px);
-    border: 1px solid rgba(255,255,255,0.25); color: white;
-    cursor: pointer; font-weight: 700; transition: all 0.5s;
+    padding: 18px 38px; font-size: 1.2rem; border: none; border-radius: 18px;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(30px);
+    border: 2px solid rgba(255,0,102,0.5); color: white;
+    cursor: pointer; font-weight: 800; transition: all 0.4s;
   }
-.btn:hover { background: linear-gradient(135deg,#ff0066,#ff3399); transform: translateY(-5px); }
+.btn:hover { background: linear-gradient(135deg,#ff0066,#ff3399); transform: translateY(-4px); }
   #back { display: none; }
 
 .yesno {
-    display: flex; gap: 30px; margin-top: 40px;
-    position: relative; width: 100%; justify-content: center; height: 100px;
+    display: flex; gap: 25px; margin-top: 30px;
+    position: relative; width: 100%; justify-content: center; height: 90px;
   }
   #yes, #no {
-    padding: 22px 50px; font-size: 1.4rem; border-radius: 18px; font-weight: 900;
+    padding: 20px 45px; font-size: 1.3rem; border-radius: 18px; font-weight: 900;
     border: none; background: linear-gradient(135deg,#ff0066,#ff3399);
-    color: white; cursor: pointer; transition: all 0.5s;
-    position: absolute; box-shadow: 0 20px 50px rgba(255,0,102,0.5);
+    color: white; cursor: pointer; position: absolute;
   }
   #yes { left: 0; }
   #no { right: 0; }
   #noText {
-    position: absolute; bottom: -45px; width: 100%;
+    position: absolute; bottom: -40px; width: 100%;
     text-align: center; font-size: 1.1rem; color: #ff99cc;
     display: none; font-weight: 700;
   }
 
   #collage {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    width: 97vw; max-width: 700px; margin-top: 30px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    width: 100%; max-width: 650px; margin: 25px 0;
   }
   #collage img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 22px;
-    transition: all 0.6s; border: 2px solid rgba(255,255,255,0.15);
+    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 18px;
+    border: 2px solid rgba(255,255,255,0.15);
   }
-  #collage img:hover { transform: scale(1.2) rotate(8deg); }
   #loveText {
-    font-size: clamp(2.8rem, 12vw, 5rem); margin: 30px 0; font-weight: 900;
+    font-size: clamp(2.5rem, 10vw, 4rem); margin: 25px 0; font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff99cc,#fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: pulse 1.5s infinite; text-align: center;
@@ -124,42 +118,32 @@
   @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
 #surpriseBtn {
-    margin-top: 30px; padding: 22px 55px; font-size: 1.4rem; border: none;
+    margin-top: 25px; padding: 20px 50px; font-size: 1.3rem; border: none;
     border-radius: 20px; font-weight: 800; cursor: pointer;
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white;
-    box-shadow: 0 0 60px rgba(255,0,102,0.7);
   }
 
+  /* FINAL SURPRISE SCREEN - BLACK + RED ROSES */
   #roseScreen {
-    position: fixed; inset: 0; background: radial-gradient(circle at 50% 50%, #000 0%, #1a0005 100%);
+    position: fixed; inset: 0; background: #000;
     display: none; justify-content: center; align-items: center; flex-direction: column;
     z-index: 9999; overflow: hidden;
   }
   #roseScreen h1 {
-    font-size: clamp(3.5rem, 18vw, 10rem); font-weight: 900;
+    font-size: clamp(3rem, 16vw, 8rem); font-weight: 900;
     background: linear-gradient(135deg, #ff66cc, #ff3399, #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: heartBeat 1s infinite; text-align: center; z-index: 2;
-    filter: drop-shadow(0 0 40px #ff66cc);
   }
 .rose {
-    position: absolute; font-size: 30px; animation: roseFall 8s linear infinite;
-    color: #ff0033; filter: drop-shadow(0 0 15px #ff0033);
+    position: absolute; font-size: 28px; animation: roseFall 7s linear infinite;
+    color: #ff0000; filter: drop-shadow(0 0 12px #ff0000);
   }
   @keyframes roseFall {
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
-  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
-
-.flyingKiss {
-    position: fixed; font-size: 80px; z-index: 9998; pointer-events: none;
-    animation: flyKiss 5s linear forwards; filter: drop-shadow(0 0 40px #ff0066);
-  }
-  @keyframes flyKiss {
-    0% { transform: translate(0,0) scale(1) rotate(0deg); }
-    100% { transform: translate(var(--x), var(--y)) scale(0.01) rotate(1440deg); opacity: 0; }
-  }
+  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 </style>
 </head>
 <body>
@@ -203,7 +187,7 @@
 <div class="slide" id="finalSlide">
   <div class="content">
     <h1>The Final Surprise 🎁</h1>
-    <p style="font-style: italic; margin: 30px 0;">
+    <p style="font-style: italic; margin: 25px 0;">
       "Teri ek jhalak ko tarasti hai meri aankhein Kandhei,<br>
       Tere naam se dhadakta hai mera dil Jaan,<br>
       Tu mil jaye to lagta hai,<br>
@@ -220,6 +204,7 @@
   </div>
 </div>
 
+<!-- FINAL I LOVE YOU SCREEN -->
 <div id="roseScreen">
   <h1>I LOVE YOU ❤️</h1>
 </div>
@@ -237,10 +222,7 @@ let noBtn = document.getElementById('no');
 let noText = document.getElementById('noText');
 
 function start(){
-  document.getElementById('welcome').style.opacity = '0';
-  document.getElementById('welcome').style.transform = 'scale(0.8)';
-  setTimeout(()=>document.getElementById('welcome').style.display='none', 2000);
-  music.volume = 1.0;
+  document.getElementById('welcome').style.display='none';
   music.play().catch(()=>{});
 }
 
@@ -252,7 +234,6 @@ function next(){
   if(current == slides.length - 1){
     document.getElementById('next').style.display = 'none';
     document.querySelector('.nav').style.display = 'none';
-    flyKiss();
   }
 }
 
@@ -269,7 +250,13 @@ function accept(){
   slides[current].classList.remove('active');
   document.getElementById('finalSlide').classList.add('active');
   music.play();
-  flyKiss();
+}
+
+function showRose(){
+  document.getElementById('finalSlide').style.display = 'none';
+  document.querySelector('.nav').style.display = 'none';
+  document.getElementById('roseScreen').style.display = 'flex';
+  startRoses();
 }
 
 // NO BUTTON TELEPORT
@@ -283,24 +270,33 @@ function moveNo(e){
   let dist = Math.sqrt(Math.pow(x - rect.left - rect.width/2, 2) + Math.pow(y - rect.top - rect.height/2, 2));
   if(dist < 120){
     noText.style.display = 'block';
-    noBtn.style.opacity = '0';
-    setTimeout(()=>{
-      let newX = Math.random() * (window.innerWidth - 200) + 50;
-      let newY = Math.random() * (window.innerHeight - 300) + 100;
-      noBtn.style.left = newX + 'px';
-      noBtn.style.right = 'auto';
-      noBtn.style.top = newY + 'px';
-      noBtn.style.opacity = '1';
-    }, 200);
+    let newX = Math.random() * (window.innerWidth - 200) + 50;
+    let newY = Math.random() * (window.innerHeight - 300) + 100;
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = newX + 'px';
+    noBtn.style.top = newY + 'px';
   }
 }
 
-// 200 PARTICLES
+// RED ROSES
+function startRoses(){
+  setInterval(() => {
+    let rose = document.createElement("div");
+    rose.innerHTML = "🌹";
+    rose.className = "rose";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.fontSize = Math.random() * 15 + 20 + "px";
+    document.getElementById('roseScreen').appendChild(rose);
+    setTimeout(() => rose.remove(), 7000);
+  }, 200);
+}
+
+// 150 PARTICLES
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particles = [];
-for(let i=0; i<200; i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*4, dx:(Math.random()-0.5)*1, dy:(Math.random()-0.5)*1}) }
+for(let i=0; i<150; i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*4, dx:(Math.random()-0.5)*1, dy:(Math.random()-0.5)*1}) }
 function animateParticles(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle = 'rgba(255,0,102,0.7)';
@@ -313,36 +309,6 @@ function animateParticles(){
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
-
-// FIREWORKS + ROSES FOR FINAL
-function showRose(){
-  document.getElementById('finalSlide').style.display = 'none';
-  document.querySelector('.nav').style.display = 'none';
-  document.getElementById('roseScreen').style.display = 'flex';
-  setInterval(() => {
-    let rose = document.createElement("div");
-    rose.innerHTML = "🌹";
-    rose.className = "rose";
-    rose.style.left = Math.random() * 100 + "vw";
-    rose.style.fontSize = Math.random() * 20 + 20 + "px";
-    document.getElementById('roseScreen').appendChild(rose);
-    setTimeout(() => rose.remove(), 8000);
-  }, 200);
-}
-
-// 1440 DEGREE KISS
-function flyKiss(){
-  setInterval(() => {
-    let kiss = document.createElement("div");
-    kiss.innerHTML = "💋";
-    kiss.className = "flyingKiss";
-    kiss.style.left = '50%'; kiss.style.top = '50%';
-    let targetX = (Math.random() - 0.5) * window.innerWidth * 4 + 'px';
-    let targetY = (Math.random() - 0.5) * window.innerHeight * 4 + 'px';
-    kiss.style.setProperty('--x', targetX); kiss.style.setProperty('--y', targetY);
-    document.body.appendChild(kiss); setTimeout(() => kiss.remove(), 5000);
-  }, 300);
-}
 </script>
 </body>
 </html>
