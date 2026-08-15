@@ -3,234 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Shruti ❤️</title>
+<title>For Shruti - My World ❤️</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: linear-gradient(135deg, #ff0066, #ff3399, #ff99cc, #ffe6f2);
-    background-size: 400% 400%; animation: gradient 8s ease infinite;
-    font-family: 'Arial', sans-serif; overflow: hidden;
+    background: #000; color: white; font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
   }
-  @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
+  /* OPEN SCREEN CINEMATIC */
   #welcome {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: radial-gradient(circle, #000, #330033); display: flex; flex-direction: column;
-    justify-content: center; align-items: center; z-index: 1000; transition: opacity 1.5s;
-    padding: 20px;
+    position: fixed; inset: 0; background: #000;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 1000; transition: opacity 2s;
   }
-  #welcome h1 { color: #ff0066; font-size: 3rem; animation: pulse 1.5s infinite; text-align: center; text-shadow: 0 0 40px #ff0066; }
-  #welcome p { color: white; margin-top: 25px; font-size: 1.4rem; text-align: center; }
+  #welcome h1 { font-size: 4rem; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glow 2s infinite; }
+  #welcome p { font-size: 1.4rem; margin: 20px 0; opacity: 0.8; }
   #openBtn {
-    margin-top: 40px; padding: 25px 60px; font-size: 1.6rem; border: none; border-radius: 60px;
-    background: linear-gradient(45deg, #ff0066, #ff99cc); color: white; cursor: pointer; font-weight: bold;
-    box-shadow: 0 0 60px rgba(255,0,102,1); animation: glow 2s infinite;
+    padding: 20px 60px; font-size: 1.5rem; border: 2px solid #ff0066; border-radius: 50px;
+    background: transparent; color: #ff0066; cursor: pointer; transition: 0.4s;
   }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-  @keyframes glow { 0%,100% { box-shadow: 0 0 60px rgba(255,0,102,1); } 50% { box-shadow: 0 0 100px rgba(255,0,102,1); } }
+  #openBtn:hover { background: #ff0066; color: #000; box-shadow: 0 0 40px #ff0066; }
+  @keyframes glow { 0%,100% { filter: drop-shadow(0 0 10px #ff0066); } 50% { filter: drop-shadow(0 0 30px #ff99cc); } }
 
-.layer {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    display: none; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; padding: 20px; color: white;
+ .slide {
+    position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
+    flex-direction: column; padding: 40px; opacity: 0; transition: opacity 1.5s ease;
+    background: radial-gradient(circle at center, #1a001a, #000);
   }
-.layer.active { display: flex; }
+ .slide.active { display: flex; opacity: 1; }
 
-.photo-box {
-    width: 90vw; max-width: 400px; height: 50vh; max-height: 500px;
-    border-radius: 30px; border: 6px solid white; overflow: hidden; margin-bottom: 20px;
-    box-shadow: 0 0 60px rgba(255,255,255,1);
-    animation: floatPhoto 4s ease-in-out infinite;
+ .glass {
+    background: rgba(255,255,255,0.05); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 30px;
+    padding: 30px; max-width: 600px; text-align: center;
+    animation: float 6s ease-in-out infinite;
   }
-.photo {
-    width: 100%; height: 100%; object-fit: cover;
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+ .photo {
+    width: 85vw; max-width: 450px; height: 55vh; border-radius: 25px;
+    object-fit: cover; margin-bottom: 25px; border: 2px solid rgba(255,0,102,0.5);
+    box-shadow: 0 0 40px rgba(255,0,102,0.4);
   }
-.zoom-eyes { animation: eyeZoom 2.5s ease-in-out infinite; }
-.zoom-face { animation: faceZoom 2.5s ease-in-out infinite; }
 
-  @keyframes floatPhoto { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-  @keyframes eyeZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.5); } }
-  @keyframes faceZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  h1 { font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  p { font-size: 1.2rem; line-height: 1.8; opacity: 0.9; }
 
-  h1 { font-size: 2.2rem; margin-bottom: 12px; text-shadow: 3px 3px 20px rgba(0,0,0,0.5); }
-  p { font-size: 1.15rem; margin-bottom: 30px; max-width: 90%; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); line-height: 1.7; }
-
-.btn-container { position: fixed; bottom: 40px; display: flex; gap: 20px; z-index: 999; }
-.btn {
-    padding: 16px 32px; font-size: 1.2rem; border: none; border-radius: 50px;
-    background: white; color: #ff0066; cursor: pointer; font-weight: bold;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+ .nav {
+    position: fixed; bottom: 50px; display: flex; gap: 20px; z-index: 99;
   }
-  #backBtn { display: none; }
-
- #lastPage { text-align: center; }
- #yesNoBtns { display: flex; gap: 20px; justify-content: center; margin-top: 20px; position: relative; height: 80px; }
- #yesBtn, #noBtn {
-    padding: 18px 40px; font-size: 1.4rem; border: none; border-radius: 50px;
-    background: white; color: #ff0066; cursor: pointer; font-weight: bold;
-    transition: all 0.5s; position: absolute;
+ .btn {
+    padding: 15px 35px; font-size: 1.1rem; border: 2px solid #ff0066; border-radius: 50px;
+    background: transparent; color: #ff0066; cursor: pointer; transition: 0.3s;
   }
- #yesBtn { left: 20%; }
- #noBtn { right: 20%; }
- #noBtn:hover { transform: translate(-150px, -150px) rotate(720deg); }
+ .btn:hover { background: #ff0066; color: #000; }
+  #back { display: none; }
 
-.heart,.sparkle { position: absolute; animation: float 10s infinite linear; z-index: -1; }
-  @keyframes float { 0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 1; } 100% { transform: translateY(-10vh) rotate(720deg) scale(2); opacity: 0; } }
+  /* PROPOSAL PAGE */
+  #proposal { text-align: center; }
+  #proposal h1 { font-size: 3rem; }
+ .yesno { position: relative; height: 100px; margin-top: 30px; }
+  #yes, #no {
+    position: absolute; padding: 18px 45px; font-size: 1.3rem; border-radius: 50px;
+    border: 2px solid #ff0066; background: transparent; color: #ff0066; cursor: pointer; transition: 0.3s;
+  }
+  #yes { left: 30%; }
+  #no { right: 30%; }
+  #no:hover { transform: translate(-200px, -150px) rotate(360deg); }
+
+  /* COLLAGE */
+  #collage {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    width: 95vw; max-width: 1000px;
+  }
+  #collage img {
+    width: 100%; height: 200px; object-fit: cover; border-radius: 15px;
+    border: 2px solid rgba(255,0,102,0.3); transition: 0.4s;
+  }
+  #collage img:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff0066; }
+  #finalText { font-size: 3rem; margin-top: 30px; background: linear-gradient(90deg,#ff0066,#ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1.5s infinite; }
 </style>
 </head>
 <body>
 
 <div id="welcome">
-  <h1>💌 Shruti 💌<br>A Surprise For You</h1>
-  <p>Tumhare liye dil se banaya hai</p>
-  <button id="openBtn" onclick="openSurprise()">Open Me ❤️</button>
+  <h1>For My Shruti</h1>
+  <p>A journey of 10 moments with you</p>
+  <button id="openBtn" onclick="start()">Touch to Begin ❤️</button>
 </div>
 
-<audio id="bgMusic" src="shruti.mp3_1.mp3" loop></audio>
+<audio id="music" src="shruti.mp3_1.mp3" loop></audio>
 
-<div class="layer active">
-  <div class="photo-box zoom-face">
-    <img src="shruti%201.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>I Love You Shruti ❤️</h1>
-  <p>Tumhara chehra dekhte hi mera din ban jata hai. Tumhari har ek hansi me mujhe sukoon milta hai. Jab tum mere paas hoti ho na to lagta hai jaise duniya ki saari khushiyan mere kadmo me hain. Tum meri strength ho, meri weakness ho, aur meri sabse badi khushi bhi tum hi ho. I promise main hamesha tumhara saath dunga.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box">
-    <img src="shruti%202.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Tum ho to...</h1>
-  <p>Tumhare aane se pehle meri life bilkul boring thi. Par jis din se tum aayi ho na, har din festival lagta hai. Tumhari baatein, tumhara care karna, choti choti cheezon pe gussa karna, sab kuch mujhe bahut pasand hai. Tum mere liye sirf girlfriend nahi ho, tum meri best friend ho, meri family ho. Tumhare bina main kuch nahi hu Shruti.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box zoom-eyes">
-    <img src="shruti%203.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Tumhari Aankhein ❤️</h1>
-  <p>Tumhari aankhon me ek alag hi nasha hai yaar. Jab tum mujhe ghoor ke dekhti ho na to dil ki dhadkan tez ho jati hai. Usme pyar bhi hai, shikayat bhi hai, aur ek ajeeb sa sukoon bhi hai. Main ghanto tumhari aankhon me khoya reh sakta hu. Sach me, tumhari aankhein duniya ki sabse khoobsurat cheez hain. Inme doobna hi meri sabse badi khushi hai.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box">
-    <img src="shruti%204.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>My Heartbeat</h1>
-  <p>Har dhadkan pe sirf tumhara naam aata hai Shruti. Subah uthte hi sabse pehle tumhari yaad aati hai aur raat ko sone se pehle bhi last thought tum hi hoti ho. Tumne meri life ko itna khoobsurat bana diya hai ki main bata nahi sakta. Tum mere saath ho to koi tension nahi, koi dikkat nahi. Tum meri dua ho jo qubool ho gayi.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box zoom-face">
-    <img src="shruti%205.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Tumhari Smile</h1>
-  <p>Tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho na to lagta hai jaise suraj nikal aaya ho. Tumhari wo cute wali smile, wo pagal wali hasi, sab mujhe pagal kar deti hai. Main kasam khata hu main hamesha tumhe hasata rahunga. Tum udaas hui to main duniya se lad jaunga. Bas tum hamesha aise hi hasti rehna.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box zoom-eyes">
-    <img src="shruti%206.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Aankhon Me Nasha</h1>
-  <p>Tumhari aankhein baat karti hain aur main sab samajh jata hu. Kabhi pyar, kabhi gussa, kabhi shikayat, sab kuch un aankhon me likha hota hai. Main chahta hu ki main un aankhon ke aansu kabhi na dekhun. Main tumhari aankhon me sirf khushi dekhna chahta hu. Promise karo tum kabhi udaas nahi hogi. Kyunki tumhari udaasi mujhse dekhi nahi jati.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box">
-    <img src="shruti%207.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>You Are Magic</h1>
-  <p>Tum aayi aur meri life ki har problem solve ho gayi. Tumne mujhe sikhaya ki pyar kya hota hai, care kya hoti hai. Tumhare saath har choti baat bhi special lagti hai. Chaye peena, baatein karna, ladna jhagadna, sab me maza aata hai. Tum mere liye ek jaadu ho Shruti. Aur main chahta hu ye jaadu kabhi khatam na ho.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box zoom-face">
-    <img src="shruti%208.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Promise Karo</h1>
-  <p>Mujhse waada karo ki tum kabhi mera saath nahi chhodogi. Chahe kitni bhi problems aayein, kitne bhi log kuch bhi kahein, hum dono hamesha ek saath rahenge. Main tumhare liye duniya se lad jaunga. Tum bas mera haath mat chhodna. Main promise karta hu main hamesha tumhara khayal rakhunga, tumhe hurt nahi karunga. Tum meri ho.</p>
-</div>
-
-<div class="layer">
-  <div class="photo-box">
-    <img src="shruti%209.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Future With You</h1>
-  <p>Main apna future sirf tumhare saath imagine karta hu. Tumhara haath pakad ke shaadi karna, bachche, ghar, sab kuch. Sochta hu jab hum budhe ho jayenge tab bhi aise hi ladenge jhagdenge aur pyar karenge. Tumhare bina ek pal bhi nahi reh sakta main. Tum hi meri manzil ho, meri mannat ho. I want you forever in my life Shruti.</p>
-</div>
-
-<div class="layer" id="lastPage">
-  <div class="photo-box">
-    <img src="shruti%2010.jpg" class="photo" alt="Shruti">
-  </div>
-  <h1>Last Sawal ❤️</h1>
-  <p>Itna sab kehne ke baad bhi ek baat kehni baaki hai. Kya tum mujhse utna hi pyar karti ho jitna main tumse karta hu? Kya tum mera saath zindagi bhar dogi? Agar haan hai to please "Yes" bolo. Kyunki main tumhare bina nahi reh sakta.</p>
-  <div id="yesNoBtns">
-    <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
-    <button id="noBtn">No 😢</button>
+<!-- 10 SLIDES -->
+<div class="slide active">
+  <div class="glass">
+    <img src="shruti%201.jpg" class="photo">
+    <h1>I Love You</h1>
+    <p>Tumhara chehra dekhte hi mera din ban jata hai. Tum meri duniya ho.</p>
   </div>
 </div>
 
-<div class="btn-container">
-  <button id="backBtn" class="btn" onclick="prevLayer()">⬅️ Back</button>
-  <button id="nextBtn" class="btn" onclick="nextLayer()">Next ➡️</button>
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%202.jpg" class="photo">
+    <h1>My Peace</h1>
+    <p>Tumhare saath har pal sukoon deta hai. Tum meri khushi ki wajah ho.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%203.jpg" class="photo">
+    <h1>Your Eyes</h1>
+    <p>Un aankhon me kho jaata hu har baar. Sabse khoobsurat nasha wahi hai.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%204.jpg" class="photo">
+    <h1>My Heartbeat</h1>
+    <p>Har dhadkan me sirf tumhara naam hai. Tum mere liye sab kuch ho.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%205.jpg" class="photo">
+    <h1>Your Smile</h1>
+    <p>Uss smile ke aage duniya ki saari khushiyan kam lagti hain mujhe.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%206.jpg" class="photo">
+    <h1>Magic</h1>
+    <p>Tum aayi aur meri life badal gayi. Tum mere liye ek jaadu ho.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%207.jpg" class="photo">
+    <h1>My Strength</h1>
+    <p>Jab tum saath ho to koi dikkat nahi. Tum meri sabse badi taakat ho.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%208.jpg" class="photo">
+    <h1>Promise</h1>
+    <p>Main waada karta hu, kabhi tumhara saath nahi chhodunga. Kabhi nahi.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="glass">
+    <img src="shruti%209.jpg" class="photo">
+    <h1>Future</h1>
+    <p>Main apna kal sirf tumhare saath dekhna chahta hu. Tum meri manzil ho.</p>
+  </div>
+</div>
+
+<!-- PROPOSAL PAGE -->
+<div class="slide" id="proposal">
+  <div class="glass">
+    <img src="shruti%2010.jpg" class="photo">
+    <h1>Shruti...</h1>
+    <p>10 pal, 10 yaadein, aur ek hi baat. Kya tum meri zindagi banogi? Will you be mine forever?</p>
+    <div class="yesno">
+      <button id="yes" onclick="accept()">Yes ❤️</button>
+      <button id="no">No 😢</button>
+    </div>
+  </div>
+</div>
+
+<!-- COLLAGE FINAL -->
+<div class="slide" id="finalSlide">
+  <h1 id="finalText">I LOVE YOU SHRUTI ❤️</h1>
+  <div id="collage">
+    <img src="shruti%201.jpg"><img src="shruti%202.jpg"><img src="shruti%203.jpg"><img src="shruti%204.jpg"><img src="shruti%205.jpg">
+    <img src="shruti%206.jpg"><img src="shruti%207.jpg"><img src="shruti%208.jpg"><img src="shruti%209.jpg"><img src="shruti%2010.jpg">
+  </div>
+</div>
+
+<div class="nav">
+  <button id="back" class="btn" onclick="prev()">⬅️ Back</button>
+  <button id="next" class="btn" onclick="next()">Next ➡️</button>
 </div>
 
 <script>
-  let currentLayer = 0;
-  const layers = document.querySelectorAll('.layer');
-  const music = document.getElementById('bgMusic');
-  const backBtn = document.getElementById('backBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const btnContainer = document.querySelector('.btn-container');
+let current = 0;
+let slides = document.querySelectorAll('.slide');
+let music = document.getElementById('music');
 
-  function openSurprise(){
-    document.getElementById('welcome').style.display = 'none';
-    music.play().catch(()=>{});
+function start(){
+  document.getElementById('welcome').style.opacity = '0';
+  setTimeout(()=>document.getElementById('welcome').style.display='none', 2000);
+  music.play();
+}
+
+function next(){
+  slides[current].classList.remove('active');
+  current++;
+  slides[current].classList.add('active');
+  document.getElementById('back').style.display = 'block';
+  if(current == slides.length - 1){
+    document.getElementById('next').style.display = 'none';
+    document.querySelector('.nav').style.display = 'none';
   }
+}
 
-  function nextLayer(){
-    layers[currentLayer].classList.remove('active');
-    currentLayer++;
-    layers[currentLayer].classList.add('active');
-    backBtn.style.display = 'block';
+function prev(){
+  slides[current].classList.remove('active');
+  current--;
+  slides[current].classList.add('active');
+  document.getElementById('next').style.display = 'block';
+  document.querySelector('.nav').style.display = 'flex';
+  if(current == 0) document.getElementById('back').style.display = 'none';
+}
 
-    if(currentLayer === layers.length - 1){
-      nextBtn.style.display = 'none';
-      btnContainer.style.display = 'none';
-    }
-  }
-
-  function prevLayer(){
-    layers[currentLayer].classList.remove('active');
-    currentLayer--;
-    layers[currentLayer].classList.add('active');
-    nextBtn.style.display = 'block';
-    btnContainer.style.display = 'flex';
-    if(currentLayer === 0) backBtn.style.display = 'none';
-  }
-
-  function sayYes(){
-    document.getElementById('lastPage').innerHTML = `
-      <div class="photo-box">
-        <img src="shruti%2010.jpg" class="photo" alt="Shruti">
-      </div>
-      <h1>I Knew It! ❤️</h1>
-      <p>I Love You Too Shruti! <br> Tum meri ho, main tumhara hu. <br> Ab hum kabhi alag nahi honge. <br> Forever and Always!</p>
-    `;
-    music.play();
-  }
-
-  setInterval(() => {
-    let el = document.createElement("div");
-    el.innerHTML = Math.random() > 0.5? "❤️" : "✨";
-    el.className = "heart";
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.fontSize = Math.random() * 30 + 15 + "px";
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 10000);
-  }, 200);
+function accept(){
+  slides[current].classList.remove('active');
+  document.getElementById('finalSlide').classList.add('active');
+  music.play();
+}
 </script>
+
 </body>
 </html>
