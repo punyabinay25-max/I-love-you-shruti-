@@ -13,16 +13,16 @@
   }
   @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
- .layer {
+.layer {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; padding: 20px; color: white; opacity: 0;
     transition: opacity 1.5s ease-in-out; pointer-events: none;
   }
- .layer.active { opacity: 1; pointer-events: all; }
+.layer.active { opacity: 1; pointer-events: all; }
 
-  /* PHOTO AB PURI BADI */
- .photo {
+  /* PHOTO BADI */
+.photo {
     width: 90vw; max-width: 400px; height: 50vh; max-height: 500px;
     border-radius: 30px; border: 5px solid white; object-fit: cover; margin-bottom: 25px;
     box-shadow: 0 0 40px rgba(255,255,255,0.8);
@@ -39,14 +39,14 @@
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   }
 
- .heart,.sparkle { position: absolute; animation: float 6s infinite linear; z-index: -1; }
+.heart,.sparkle { position: absolute; animation: float 6s infinite linear; z-index: -1; }
   @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 </style>
 </head>
 <body>
 
-<!-- MUSIC FIX: controls hata diye, autoplay ke liye -->
-<audio id="bgMusic" src="shruti.mp3" loop></audio>
+<!-- MUSIC:.m4a kar diya -->
+<audio id="bgMusic" src="shruti.m4a" loop></audio>
 
 <!-- LAYER 1 -->
 <div class="layer active">
@@ -133,7 +133,7 @@
   function nextLayer(){
     layers[currentLayer].classList.remove('active');
     currentLayer++;
-    if(currentLayer >= layers.length) currentLayer = 0; // wapas pehle pe
+    if(currentLayer >= layers.length) currentLayer = 0;
     layers[currentLayer].classList.add('active');
 
     if(currentLayer === layers.length - 1){
