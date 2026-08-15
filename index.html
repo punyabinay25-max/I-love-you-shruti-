@@ -31,7 +31,7 @@
       radial-gradient(circle at 80% 80%, rgba(255,0,200,0.3) 0%, transparent 50%);
     filter: blur(100px); animation: aurora 20s infinite alternate;
   }
-  @keyframes aurora { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(360deg) scale(1.6); } }
+  @keyframes aurora { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(360deg) scale(1.6); }
 
   #welcome {
     position: fixed; inset: 0; backdrop-filter: blur(70px) saturate(200%);
@@ -69,7 +69,6 @@
     padding: 30px 25px;
   }
 
- /* PHOTO FIX - CROP NAHI HOGA */
 .photo {
     width: 100%; max-width: 500px; height: auto; aspect-ratio: 3/4; border-radius: 30px;
     object-fit: contain; margin-bottom: 25px;
@@ -88,7 +87,6 @@
     opacity: 0.95; text-align: center; font-weight: 300; margin-bottom: 20px;
   }
 
- /* NAV FIX - OVERLAP KHATAM */
 .nav {
     position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
     display: flex; gap: 20px; z-index: 999;
@@ -133,7 +131,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: pulse 1.3s infinite; text-align: center;
   }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
   #surpriseBtn {
     margin-top: 25px; padding: 20px 50px; font-size: 1.3rem; border: none;
@@ -141,26 +139,33 @@
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white;
   }
 
+  /* FINAL ROSE SCREEN - FLOATING + BARISH */
   #roseScreen {
-    position: fixed; inset: 0; background: #000;
+    position: fixed; inset: 0; background: radial-gradient(circle at 50% 50%, #000 0%, #1a0005 100%);
     display: none; justify-content: center; align-items: center; flex-direction: column;
     z-index: 9999; overflow: hidden;
   }
-  #roseScreen h1 {
-    font-size: clamp(3.5rem, 18vw, 10rem); font-weight: 900;
+  #floatingLove {
+    font-size: clamp(4rem, 18vw, 12rem); font-weight: 900; z-index: 2;
     background: linear-gradient(135deg, #ff66cc, #ff3399, #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    animation: heartBeat 1s infinite; text-align: center;
+    animation: floatLove 3s ease-in-out infinite, glow 2s infinite;
+    text-align: center;
+    text-shadow: 0 0 80px rgba(255,102,204,0.8);
   }
+  @keyframes floatLove {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.1); }
+  }
+  @keyframes glow { 0%,100% { filter: drop-shadow(0 0 40px #ff66cc); } 50% { filter: drop-shadow(0 0 80px #ff3399); }
 .rose {
-    position: absolute; font-size: 28px; animation: roseFall 8s linear infinite;
+    position: absolute; font-size: 30px; animation: roseFall 8s linear infinite;
     color: #ff0000; filter: drop-shadow(0 0 15px #ff0000);
   }
   @keyframes roseFall {
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
-  @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); }
 </style>
 </head>
 <body>
@@ -227,8 +232,9 @@
   </div>
 </div>
 
+<!-- FINAL SCREEN -->
 <div id="roseScreen">
-  <h1>I LOVE YOU ❤️</h1>
+  <h1 id="floatingLove">I LOVE YOU ❤️</h1>
 </div>
 
 <div class="nav">
@@ -243,10 +249,13 @@ let music = document.getElementById('music');
 let noBtn = document.getElementById('no');
 let noText = document.getElementById('noText');
 
-// SONG PEHLE SE LOAD
+// INSTANT LOAD
 window.addEventListener('load', ()=>{ 
   music.load();
   music.volume = 1.0;
+  // Saari images cache
+  let imgs = ['shruti 1.jpg','shruti 2.jpg','shruti 3.jpg','shruti 4.jpg','shruti 5.jpg','shruti 6.jpg','shruti 7.jpg','shruti 8.jpg','shruti 9.jpg','shruti 10.jpg','shruti 11.jpg','shruti 12.jpg','shruti 13.jpg'];
+  imgs.forEach(src => { let img = new Image(); img.src = src; });
 });
 
 function start(){
@@ -285,7 +294,7 @@ function showRose(){
   document.getElementById('finalSlide').style.display = 'none';
   document.querySelector('.nav').style.display = 'none';
   document.getElementById('roseScreen').style.display = 'flex';
-  startRoses();
+  startRoseRain(); // INSTANT ROSE BARISH
 }
 
 // NO BUTTON TELEPORT
@@ -307,17 +316,25 @@ function moveNo(e){
   }
 }
 
-// RED ROSES
-function startRoses(){
-  setInterval(() => {
-    let rose = document.createElement("div");
-    rose.innerHTML = "🌹";
-    rose.className = "rose";
-    rose.style.left = Math.random() * 100 + "vw";
-    rose.style.fontSize = Math.random() * 20 + 20 + "px";
-    document.getElementById('roseScreen').appendChild(rose);
-    setTimeout(() => rose.remove(), 8000);
-  }, 200);
+// ROSE KI BARISH - INSTANT 50 ROSES
+function startRoseRain(){
+  // Pehle 50 rose ek saath
+  for(let i=0; i<50; i++){
+    setTimeout(createRose, i*50);
+  }
+  // Phir continuous
+  setInterval(createRose, 150);
+}
+
+function createRose(){
+  let rose = document.createElement("div");
+  rose.innerHTML = "🌹";
+  rose.className = "rose";
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.fontSize = Math.random() * 20 + 20 + "px";
+  rose.style.animationDuration = Math.random() * 3 + 5 + "s";
+  document.getElementById('roseScreen').appendChild(rose);
+  setTimeout(() => rose.remove(), 8000);
 }
 
 // 200 PARTICLES
