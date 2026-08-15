@@ -11,123 +11,96 @@
   html, body { background: #000; color: white; font-family: 'Inter', sans-serif; height: 100%; overflow: hidden; }
 
   #particles { position: fixed; inset: 0; z-index: -1; }
-.aurora {
-    position: fixed; inset: 0; z-index: -1;
+ .aurora { position: fixed; inset: 0; z-index: -1;
     background: radial-gradient(circle at 20% 50%, rgba(255,0,102,0.5) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, rgba(255,0,200,0.3) 0%, transparent 50%);
     filter: blur(100px); animation: aurora 20s infinite alternate;
   }
   @keyframes aurora { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(360deg) scale(1.6); } }
 
-  #welcome {
-    position: fixed; inset: 0; backdrop-filter: blur(70px);
+  #welcome { position: fixed; inset: 0; backdrop-filter: blur(70px);
     background: rgba(0,0,0,0.7); display: flex; flex-direction: column;
     justify-content: center; align-items: center; z-index: 1000;
     transition: all 2s; padding: 20px;
   }
-  #welcome h1 {
-    font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900;
+  #welcome h1 { font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff3399,#fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: gradient 3s infinite; text-align: center;
   }
   #welcome h2 { font-size: clamp(1.2rem, 5vw, 1.8rem); margin: 20px 0; font-weight: 100; text-align: center; }
-  #openBtn {
-    padding: 22px 55px; font-size: 1.4rem; border: none; border-radius: 20px; font-weight: 800;
+  #openBtn { padding: 22px 55px; font-size: 1.4rem; border: none; border-radius: 20px; font-weight: 800;
     background: linear-gradient(135deg,#ff0066,#ff3399); color: white; cursor: pointer;
   }
   @keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-.slide {
-    position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
+ .slide { position: fixed; inset: 0; display: none; justify-content: center; align-items: center;
     flex-direction: column; padding: 20px 20px 180px 20px; opacity: 0; overflow-y: auto;
     transition: all 1.5s;
   }
-.slide.active { display: flex; opacity: 1; }
+ .slide.active { display: flex; opacity: 1; }
 
-.content {
-    width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center;
+ .content { width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center;
     background: rgba(255,255,255,0.04); backdrop-filter: blur(50px);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 35px;
-    padding: 25px 20px;
+    padding: 30px 25px;
   }
 
-.photo {
-    width: 100%; max-width: 500px; height: auto; aspect-ratio: 3/4; border-radius: 25px;
-    object-fit: contain; margin-bottom: 20px;
+ .photo { width: 100%; max-width: 500px; height: auto; aspect-ratio: 3/4; border-radius: 25px;
+    object-fit: contain; margin-bottom: 25px;
     border: 2px solid rgba(255,255,255,0.2); background: #111;
   }
 
-  h1 {
-    font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 15px; font-weight: 900;
+  h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 20px; font-weight: 900;
     background: linear-gradient(135deg,#ff0066,#ff99cc);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     text-align: center;
   }
-  p {
-    font-size: clamp(1.1rem, 4vw, 1.3rem); line-height: 1.9;
+  p { font-size: clamp(1.2rem, 4.5vw, 1.4rem); line-height: 1.8; /* ~20 words */
     text-align: center; font-weight: 300;
   }
 
-.nav {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+ .nav { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
     display: flex; gap: 15px; z-index: 999;
   }
-.btn {
-    padding: 16px 32px; font-size: 1.1rem; border: none; border-radius: 16px;
+ .btn { padding: 18px 35px; font-size: 1.2rem; border: none; border-radius: 16px;
     background: linear-gradient(135deg,#ff0066,#ff3399);
     color: white; cursor: pointer; font-weight: 800;
   }
   #back { display: none; background: rgba(0,0,0,0.7); border: 2px solid #ff0066; }
 
-.yesno {
-    display: flex; gap: 20px; margin-top: 25px;
+ .yesno { display: flex; gap: 20px; margin-top: 25px;
     position: relative; width: 100%; justify-content: center; height: 90px;
   }
-  #yes, #no {
-    padding: 18px 40px; font-size: 1.2rem; border-radius: 16px; font-weight: 900;
+  #yes, #no { padding: 18px 40px; font-size: 1.2rem; border-radius: 16px; font-weight: 900;
     border: none; background: linear-gradient(135deg,#ff0066,#ff3399);
     color: white; cursor: pointer; position: absolute;
   }
   #yes { left: 0; }
   #no { right: 0; }
-  #noText {
-    position: absolute; bottom: -35px; width: 100%;
-    text-align: center; font-size: 1rem; color: #ff99cc;
+  #noText { position: absolute; bottom: -35px; width: 100%;
+    text-align: center; font-size: 1.1rem; color: #ff99cc;
     display: none; font-weight: 700;
   }
 
-  #collage {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    width: 100%; max-width: 600px; margin-top: 20px;
-  }
-  #collage img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 15px;
-  }
-
-  #roseScreen {
-    position: fixed; inset: 0; background: #000;
+  #roseScreen { position: fixed; inset: 0; background: #000;
     display: none; justify-content: center; align-items: center;
     z-index: 9999; overflow: hidden;
   }
-  #floatingLove {
-    font-size: clamp(3rem, 15vw, 8rem); font-weight: 900;
+  #floatingLove { font-size: clamp(3rem, 15vw, 8rem); font-weight: 900;
     background: linear-gradient(135deg, #ff66cc, #ff3399, #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: floatLove 3s ease-in-out infinite;
   }
-  @keyframes floatLove {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-.rose {
-    position: absolute; font-size: 25px; animation: roseFall 7s linear infinite;
-    color: #ff0000;
-  }
-  @keyframes roseFall {
-    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-  }
+  @keyframes floatLove { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+ .rose { position: absolute; font-size: 25px; animation: roseFall 7s linear infinite; color: #ff0000; }
+ .petal { position: absolute; font-size: 18px; animation: petalFall 8s linear infinite; color: #ff6699; }
+  @keyframes roseFall { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+  @keyframes petalFall { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(-360deg); opacity: 0; }
+
+  /* NEW INTERESTING: Heart beat effect */
+ .heartbeat { animation: heartbeat 1.2s infinite; }
+  @keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
 </style>
 </head>
 <body>
@@ -135,34 +108,34 @@
 <div class="aurora"></div>
 
 <div id="welcome">
-  <h1>Shruti Kandhei My Jaan</h1>
+  <h1 class="heartbeat">Shruti Kandhei My Jaan</h1>
   <h2>I HAVE A SURPRISE FOR YOU</h2>
   <button id="openBtn" onclick="start()">Begin Journey 🎵</button>
 </div>
 
 <audio id="music" src="shruti.mp3_1.mp3" preload="auto" loop></audio>
 
-<!-- 13 SLIDES -->
-<div class="slide active"><div class="content"><img src="shruti 13.jpg" onerror="this.src='Shruti 13.jpg'" class="photo"><h1>Chapter 13</h1><p>My Jaan Kandhei, tum meri akhri saans tak ka pyaar ho.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 12.jpg" onerror="this.src='Shruti 12.jpg'" class="photo"><h1>Chapter 12</h1><p>Kandhei, tumhare saath budha hone ka sapna dekhta hu.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 11.jpg" onerror="this.src='Shruti 11.jpg'" class="photo"><h1>Chapter 11</h1><p>Shruti Jaan, tumhari ek jhalak ke liye main duniya se lad jaunga.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 10.jpg" class="photo"><h1>Chapter 10</h1><p>My Jaan Kandhei, tumhare bina main adhura hu.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 9.jpg" class="photo"><h1>Chapter 9</h1><p>Kandhei, main apna future sirf tumhare saath dekhna chahta hu.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 8.jpg" class="photo"><h1>Chapter 8</h1><p>My Jaan Shruti, hum dono hamesha ek saath rahenge.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 7.jpg" class="photo"><h1>Chapter 7</h1><p>Jab tum saath ho Kandhei to koi dikkat nahi lagti.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 6.jpg" class="photo"><h1>Chapter 6</h1><p>Kandhei Jaan, tum aayi aur meri life badal gayi.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 5.jpg" class="photo"><h1>Chapter 5</h1><p>My Jaan, tumhari smile ke aage duniya ki khushiyan bekaar hain.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 4.jpg" class="photo"><h1>Chapter 4</h1><p>Shruti Jaan, har dhadkan me sirf tumhara naam hai.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 3.jpg" class="photo"><h1>Chapter 3</h1><p>Kandhei, tumhari aankhon me ek alag hi nasha hai.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 2.jpg" class="photo"><h1>Chapter 2</h1><p>My Jaan Shruti, tumhare saath bitaaya hua har pal keemti hai.</p></div></div>
-<div class="slide"><div class="content"><img src="shruti 1.jpg" class="photo"><h1>Chapter 1</h1><p>Kandhei, tumhara chehra dekhte hi mera din ban jata hai.</p></div></div>
+<!-- 13 SLIDES - ~20 WORDS EACH -->
+<div class="slide active"><div class="content"><img src="shruti 13.jpg" onerror="this.src='Shruti 13.jpg'" class="photo"><h1>Chapter 13</h1><p>My Jaan Kandhei, tum meri akhri saans tak ka pyaar ho. Tumhare bina jeena soch bhi nahi sakta, tum hi meri duniya ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 12.jpg" onerror="this.src='Shruti 12.jpg'" class="photo"><h1>Chapter 12</h1><p>Kandhei, main tumhare saath budha hona chahta hu. Har subah tumhara chehra dekhna chahta hu, aur raat ko tumhare haath me haath leke sona chahta hu.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 11.jpg" onerror="this.src='Shruti 11.jpg'" class="photo"><h1>Chapter 11</h1><p>Shruti Jaan, tumhari ek jhalak ke liye main puri duniya se lad jaunga. Tumhari hansi sunne ke liye main kuch bhi kar sakta hu, bas tum khush raho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 10.jpg" onerror="this.src='Shruti 10.jpg'" class="photo"><h1>Chapter 10</h1><p>My Jaan Kandhei, tumhare bina main adhura hu. Tum meri zindagi ki wo kami ho jise paane ke baad sab kuch complete lagta hai.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 9.jpg" onerror="this.src='Shruti 9.jpg'" class="photo"><h1>Chapter 9</h1><p>Kandhei, main apna future sirf tumhare saath dekhna chahta hu. Chota sa ghar, tum, main aur bahut saara pyaar, bas yahi chahiye mujhe.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 8.jpg" onerror="this.src='Shruti 8.jpg'" class="photo"><h1>Chapter 8</h1><p>My Jaan Shruti, hum dono hamesha ek saath rahenge. Na ladai, na duri, sirf pyaar aur vishwas hoga humare beech.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 7.jpg" onerror="this.src='Shruti 7.jpg'" class="photo"><h1>Chapter 7</h1><p>Jab tum saath ho Kandhei to koi dikkat badi nahi lagti. Tumhari ek baat se mere saare dukh khatam ho jate hain.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 6.jpg" onerror="this.src='Shruti 6.jpg'" class="photo"><h1>Chapter 6</h1><p>Kandhei Jaan, tum aayi aur meri life badal gayi. Andhere me roshni ban ke aayi, aur mujhe jeene ka naya matlab diya.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 5.jpg" onerror="this.src='Shruti 5.jpg'" class="photo"><h1>Chapter 5</h1><p>My Jaan, tumhari smile ke aage duniya ki saari khushiyan bekaar hain. Jab tum hasti ho to lagta hai jannat yahi hai.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 4.jpg" onerror="this.src='Shruti 4.jpg'" class="photo"><h1>Chapter 4</h1><p>Shruti Jaan, har dhadkan me sirf tumhara naam hai. Saans leti hu to tum yaad aati ho, aur raat ko sapno me bhi tum hi hoti ho.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 3.jpg" onerror="this.src='Shruti 3.jpg'" class="photo"><h1>Chapter 3</h1><p>Kandhei, tumhari aankhon me ek alag hi nasha hai. Unhe dekhte hi main kho jata hu, aur wapas aana hi nahi chahta.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 2.jpg" onerror="this.src='Shruti 2.jpg'" class="photo"><h1>Chapter 2</h1><p>My Jaan Shruti, tumhare saath bitaaya hua har pal keemti hai. Har baat, har hansi, har jhagda bhi mujhe bahut yaad aata hai.</p></div></div>
+<div class="slide"><div class="content"><img src="shruti 1.jpg" onerror="this.src='Shruti 1.jpg'" class="photo"><h1>Chapter 1</h1><p>Kandhei, tumhara chehra dekhte hi mera din ban jata hai. Tumhari ek call se mera mood thik ho jata hai, tum hi meri dawai ho.</p></div></div>
 
-<div class="slide" id="lovePage"><div class="content"><h1>I LOVE YOU SHRUTI ❤️</h1><p>My Kandhei Jaan, main tumse behad pyar karta hu.</p></div></div>
+<div class="slide" id="lovePage"><div class="content"><h1 class="heartbeat">I LOVE YOU SHRUTI ❤️</h1><p>My Kandhei Jaan, main tumse behad pyar karta hu. Duniya me sabse zyada, sabse sachha pyaar sirf tumse karta hu.</p></div></div>
 
 <div class="slide" id="proposal">
   <div class="content">
     <h1>Shruti Kandhei...</h1>
-    <p>Will you be mine forever Jaan?</p>
+    <p>Will you be mine forever Jaan? Promise karo ki kabhi mera saath nahi chhodogi, aur hamesha mera haath tham ke chalogi.</p>
     <div class="yesno">
       <button id="yes" onclick="accept()">Yes ❤️</button>
       <button id="no">No 😢</button>
@@ -174,7 +147,7 @@
 <div class="slide" id="finalSlide">
   <div class="content">
     <h1>The Final Surprise 🎁</h1>
-    <p>"Teri ek jhalak ko tarasti hai meri aankhein Kandhei"</p>
+    <p>"Teri ek jhalak ko tarasti hai meri aankhein Kandhei. Ek baar mil lo, phir kabhi shikayat nahi karunga."</p>
     <h1>I LOVE YOU SHRUTI KANDHEI ❤️</h1>
     <button id="surpriseBtn" onclick="showRose()">🎁 Final Surprise</button>
   </div>
@@ -198,6 +171,7 @@ let noText = document.getElementById('noText');
 
 function start(){
   document.getElementById('welcome').style.display='none';
+  music.playbackRate = 1.3; // SONG FAST KIYA
   music.play().catch(()=>{});
 }
 
@@ -206,10 +180,7 @@ function next(){
   current++;
   slides[current].classList.add('active');
   document.getElementById('back').style.display = 'block';
-  if(current == slides.length - 1){
-    document.getElementById('next').style.display = 'none';
-    document.querySelector('.nav').style.display = 'none';
-  }
+  if(current == slides.length - 1){ document.getElementById('next').style.display = 'none'; document.querySelector('.nav').style.display = 'none'; }
 }
 
 function prev(){
@@ -221,17 +192,15 @@ function prev(){
   if(current == 0) document.getElementById('back').style.display = 'none';
 }
 
-function accept(){
-  slides[current].classList.remove('active');
-  document.getElementById('finalSlide').classList.add('active');
-}
+function accept(){ slides[current].classList.remove('active'); document.getElementById('finalSlide').classList.add('active'); }
 
 function showRose(){
   document.getElementById('finalSlide').style.display = 'none';
   document.querySelector('.nav').style.display = 'none';
   document.getElementById('roseScreen').style.display = 'flex';
-  for(let i=0; i<30; i++){ setTimeout(createRose, i*100); }
-  setInterval(createRose, 200);
+  for(let i=0; i<40; i++){ setTimeout(createRose, i*80); }
+  setInterval(createRose, 150);
+  setInterval(createPetal, 120); // PETAL BHI GIR RAHE
 }
 
 function createRose(){
@@ -243,19 +212,18 @@ function createRose(){
   setTimeout(() => rose.remove(), 7000);
 }
 
+function createPetal(){ // NEW PETAL EFFECT
+  let petal = document.createElement("div");
+  petal.innerHTML = "🌸";
+  petal.className = "petal";
+  petal.style.left = Math.random() * 100 + "vw";
+  document.getElementById('roseScreen').appendChild(petal);
+  setTimeout(() => petal.remove(), 8000);
+}
+
 // NO BUTTON
 document.addEventListener('mousemove', moveNo);
-function moveNo(e){
-  if(current!= 14) return;
-  let rect = noBtn.getBoundingClientRect();
-  let dist = Math.sqrt(Math.pow(e.clientX - rect.left - rect.width/2, 2) + Math.pow(e.clientY - rect.top - rect.height/2, 2));
-  if(dist < 100){
-    noText.style.display = 'block';
-    noBtn.style.left = Math.random() * (window.innerWidth - 200) + 50 + 'px';
-    noBtn.style.top = Math.random() * (window.innerHeight - 300) + 100 + 'px';
-    noBtn.style.position = 'fixed';
-  }
-}
+function moveNo(e){ if(current!= 14) return; let rect = noBtn.getBoundingClientRect(); let dist = Math.sqrt(Math.pow(e.clientX - rect.left - rect.width/2, 2) + Math.pow(e.clientY - rect.top - rect.height/2, 2)); if(dist < 100){ noText.style.display = 'block'; noBtn.style.left = Math.random() * (window.innerWidth - 200) + 50 + 'px'; noBtn.style.top = Math.random() * (window.innerHeight - 300) + 100 + 'px'; noBtn.style.position = 'fixed'; } }
 
 // PARTICLES
 const canvas = document.getElementById('particles');
@@ -263,17 +231,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particles = [];
 for(let i=0; i<100; i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*3, dx:(Math.random()-0.5), dy:(Math.random()-0.5)}) }
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = 'rgba(255,0,102,0.6)';
-  particles.forEach(p => {
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    p.x+=p.dx; p.y+=p.dy;
-    if(p.x<0||p.x>canvas.width) p.dx*=-1;
-    if(p.y<0||p.y>canvas.height) p.dy*=-1;
-  });
-  requestAnimationFrame(animate);
-}
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle = 'rgba(255,0,102,0.6)'; particles.forEach(p => { ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width) p.dx*=-1; if(p.y<0||p.y>canvas.height) p.dy*=-1; }); requestAnimationFrame(animate); }
 animate();
 </script>
 </body>
