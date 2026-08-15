@@ -3,156 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Shruti ❤️</title>
+<title>For My Shruti ❤️</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fec5e5, #ffecd2);
-    background-size: 400% 400%; animation: gradient 15s ease infinite;
+    background: linear-gradient(135deg, #ff0066, #ff3399, #ff99cc, #ffe6f2);
+    background-size: 400% 400%; animation: gradient 8s ease infinite;
     font-family: 'Arial', sans-serif; overflow: hidden;
   }
   @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-.layer {
+  /* SURPRISE SCREEN */
+  #welcome {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #000, #1a001a); display: flex; flex-direction: column; 
+    justify-content: center; align-items: center; z-index: 1000; transition: opacity 1.5s;
+  }
+  #welcome h1 { color: #ff0066; font-size: 2.5rem; animation: pulse 1.5s infinite; text-align: center; text-shadow: 0 0 20px #ff0066; }
+  #welcome p { color: white; margin-top: 20px; font-size: 1.1rem; }
+  #openBtn {
+    margin-top: 30px; padding: 20px 45px; font-size: 1.4rem; border: none; border-radius: 50px;
+    background: linear-gradient(45deg, #ff0066, #ff99cc); color: white; cursor: pointer; font-weight: bold;
+    box-shadow: 0 0 40px rgba(255,0,102,0.9); animation: glow 2s infinite;
+  }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+  @keyframes glow { 0%,100% { box-shadow: 0 0 40px rgba(255,0,102,0.9); } 50% { box-shadow: 0 0 80px rgba(255,0,102,1); }
+
+ .layer {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; padding: 20px; color: white; opacity: 0;
-    transition: opacity 1.5s ease-in-out; pointer-events: none;
+    transition: all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform: scale(0.7) rotate(-5deg);
+    pointer-events: none;
   }
-.layer.active { opacity: 1; pointer-events: all; }
+ .layer.active { opacity: 1; transform: scale(1) rotate(0deg); pointer-events: all; }
 
-  /* PHOTO BADI */
-.photo {
+  /* PHOTO WITH ZOOM ANIMATION */
+ .photo {
     width: 90vw; max-width: 400px; height: 50vh; max-height: 500px;
-    border-radius: 30px; border: 5px solid white; object-fit: cover; margin-bottom: 25px;
-    box-shadow: 0 0 40px rgba(255,255,255,0.8);
-    animation: floatPhoto 3s ease-in-out infinite;
+    border-radius: 30px; border: 6px solid white; object-fit: cover; margin-bottom: 20px;
+    box-shadow: 0 0 60px rgba(255,255,255,1);
+    animation: floatPhoto 4s ease-in-out infinite;
+    transition: transform 1.5s ease-in-out;
   }
-  @keyframes floatPhoto { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+  /* EYE ZOOM WALA CLASS */
+ .photo.zoom { animation: eyeZoom 3s ease-in-out infinite; }
+  @keyframes floatPhoto { 0%,100% { transform: translateY(0px) rotate(-1deg); } 50% { transform: translateY(-25px) rotate(1deg); }
+  @keyframes eyeZoom { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-  h1 { font-size: 2.5rem; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-  p { font-size: 1.3rem; margin-bottom: 30px; max-width: 90%; text-shadow: 1px 1px 5px rgba(0,0,0,0.2); }
+  h1 { font-size: 2.3rem; margin-bottom: 12px; text-shadow: 3px 3px 20px rgba(0,0,0,0.5); animation: fadeInUp 1s; }
+  p { font-size: 1.3rem; margin-bottom: 30px; max-width: 90%; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); animation: fadeInUp 1.5s; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); }
 
-  #nextBtn {
-    position: fixed; bottom: 40px; padding: 15px 35px; font-size: 1.2rem; border: none; border-radius: 50px;
-    background: white; color: #ff0066; cursor: pointer; font-weight: bold; z-index: 999;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  /* BUTTONS */
+ .btn-container { position: fixed; bottom: 40px; display: flex; gap: 20px; z-index: 999; }
+ .btn {
+    padding: 16px 32px; font-size: 1.2rem; border: none; border-radius: 50px;
+    background: white; color: #ff0066; cursor: pointer; font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: all 0.3s;
   }
+ .btn:active { transform: scale(0.9); }
+  #backBtn { display: none; }
 
-.heart,.sparkle { position: absolute; animation: float 6s infinite linear; z-index: -1; }
-  @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+  /* BHAR BHAR GRAPHICS */
+ .heart,.sparkle,.star,.rose { position: absolute; animation: float 10s infinite linear; z-index: -1; }
+  @keyframes float { 0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 1; } 100% { transform: translateY(-10vh) rotate(1080deg) scale(2); opacity: 0; } }
 </style>
 </head>
 <body>
 
-<!-- MUSIC:.m4a kar diya -->
-<audio id="bgMusic" src="shruti.m4a" loop></audio>
+<!-- SURPRISE SCREEN -->
+<div id="welcome">
+  <h1>💌 Shruti<br>A Surprise For You 💌</h1>
+  <p>Tumhare liye dil se banaya hai</p>
+  <button id="openBtn" onclick="openSurprise()">Open Me ❤️</button>
+</div>
 
-<!-- LAYER 1 -->
+<!-- MP3 SONG -->
+<audio id="bgMusic" src="shruti.mp3" loop></audio>
+
+<!-- 10 LAYERS - 10 PHOTO -->
 <div class="layer active">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <img src="shruti 1.jpg" class="photo" alt="Shruti">
   <h1>I Love You Shruti ❤️</h1>
-  <p>Shruti, tumhari ek smile ke liye main duniya jeet lu</p>
+  <p>Tumhari ek jhalak ke liye main 100 baar janam lu</p>
 </div>
 
-<!-- LAYER 2 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <img src="shruti 2.jpg" class="photo" alt="Shruti">
   <h1>Tum ho to...</h1>
-  <p>Har din Valentine's Day hai mere liye</p>
+  <p>Meri duniya me rang hi rang hain. Tum meri duniya ho</p>
 </div>
 
-<!-- LAYER 3 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>My heart beats only for you</h1>
-  <p>Tumse milna meri life ki best cheez hai</p>
-</div>
-
-<!-- LAYER 4 -->
-<div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
+  <img src="shruti 3.jpg" class="photo zoom" alt="Shruti"> <!-- EYE ZOOM -->
   <h1>Tumhari Aankhein ❤️</h1>
-  <p>Usme kho jaane ka mann karta hai har baar</p>
+  <p>Doob jaata hu har baar. Sabse khoobsurat nasha tumhari aankhon me hai</p>
 </div>
 
-<!-- LAYER 5 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Tumhari Baatein</h1>
-  <p>Tumhari voice sunke din ban jata hai</p>
+  <img src="shruti 4.jpg" class="photo" alt="Shruti">
+  <h1>My Heartbeat</h1>
+  <p>Har dhadkan me sirf tumhara naam hai</p>
 </div>
 
-<!-- LAYER 6 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Promise</h1>
-  <p>Main hamesha tumhara saath dunga, har khushi har gam me</p>
+  <img src="shruti 5.jpg" class="photo" alt="Shruti">
+  <h1>Tumhari Smile</h1>
+  <p>Uss smile ke saamne duniya ki saari khushiyan kam hain</p>
 </div>
 
-<!-- LAYER 7 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Tum Special Ho</h1>
-  <p>Duniya me 8 Arab log hain, par mera dil sirf tumhe chunta hai</p>
+  <img src="shruti 6.jpg" class="photo zoom" alt="Shruti"> <!-- EYE ZOOM -->
+  <h1>Aankhon Me Nasha</h1>
+  <p>Tumhari aankhein baat karti hain, aur dil behosh ho jata hai</p>
 </div>
 
-<!-- LAYER 8 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Future ka Sapna</h1>
-  <p>Tumhara haath pakad ke zindagi bhar chalna hai</p>
+  <img src="shruti 7.jpg" class="photo" alt="Shruti">
+  <h1>You Are Magic</h1>
+  <p>Tum aayi aur meri life ki har problem solve ho gayi</p>
 </div>
 
-<!-- LAYER 9 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Thank You</h1>
-  <p>Meri life me aane ke liye. Tum best ho ❤️</p>
+  <img src="shruti 8.jpg" class="photo" alt="Shruti">
+  <h1>Promise Karo</h1>
+  <p>Kabhi saath nahi chhodogi na? Main bhi nahi chhodunga</p>
 </div>
 
-<!-- LAYER 10 -->
 <div class="layer">
-  <img src="shruti.jpg" class="photo" alt="Shruti">
-  <h1>Last wali baat</h1>
-  <p>I Love You Shruti. Forever and Always</p>
+  <img src="shruti 9.jpg" class="photo" alt="Shruti">
+  <h1>Future With You</h1>
+  <p>Tumhara haath aur mera haath. Bas yahi chahiye zindagi bhar</p>
 </div>
 
-<button id="nextBtn" onclick="nextLayer()">Next ❤️</button>
+<div class="layer">
+  <img src="shruti 10.jpg" class="photo" alt="Shruti">
+  <h1>Forever & Always ❤️</h1>
+  <p>I Love You Shruti. Aaj bhi, kal bhi, hamesha bhi</p>
+</div>
+
+<!-- BUTTONS -->
+<div class="btn-container">
+  <button id="backBtn" class="btn" onclick="prevLayer()">⬅️ Back</button>
+  <button id="nextBtn" class="btn" onclick="nextLayer()">Next ➡️</button>
+</div>
 
 <script>
   let currentLayer = 0;
   const layers = document.querySelectorAll('.layer');
   const music = document.getElementById('bgMusic');
+  const backBtn = document.getElementById('backBtn');
 
-  // MUSIC CHALANE KE LIYE: pehle click pe start
-  document.body.addEventListener('click', () => {
+  function openSurprise(){
+    document.getElementById('welcome').style.opacity = '0';
+    setTimeout(() => document.getElementById('welcome').style.display = 'none', 1500);
     music.play().catch(()=>{});
-  }, { once: true });
+  }
 
   function nextLayer(){
     layers[currentLayer].classList.remove('active');
     currentLayer++;
-    if(currentLayer >= layers.length) currentLayer = 0;
+    if(currentLayer >= layers.length) currentLayer = layers.length - 1;
     layers[currentLayer].classList.add('active');
-
+    backBtn.style.display = 'block';
     if(currentLayer === layers.length - 1){
-      document.getElementById('nextBtn').innerText = "Wapas se ❤️";
-    } else {
-      document.getElementById('nextBtn').innerText = "Next ❤️";
+      document.getElementById('nextBtn').innerText = "🔁 Wapas";
     }
   }
 
-  // Background hearts
+  function prevLayer(){
+    layers[currentLayer].classList.remove('active');
+    currentLayer--;
+    if(currentLayer < 0) currentLayer = 0;
+    layers[currentLayer].classList.add('active');
+    document.getElementById('nextBtn').innerText = "Next ➡️";
+    if(currentLayer === 0) backBtn.style.display = 'none';
+  }
+
+  // BHAR BHAR GRAPHICS
   setInterval(() => {
     let el = document.createElement("div");
-    el.innerHTML = Math.random() > 0.5? "❤️" : "✨";
-    el.className = Math.random() > 0.5? "heart" : "sparkle";
+    let rand = Math.random();
+    if(rand > 0.75) { el.innerHTML = "❤️"; el.className = "heart"; }
+    else if(rand > 0.5) { el.innerHTML = "✨"; el.className = "sparkle"; }
+    else if(rand > 0.25) { el.innerHTML = "⭐"; el.className = "star"; }
+    else { el.innerHTML = "🌹"; el.className = "rose"; }
     el.style.left = Math.random() * 100 + "vw";
-    el.style.fontSize = Math.random() * 20 + 15 + "px";
+    el.style.fontSize = Math.random() * 30 + 15 + "px";
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 6000);
-  }, 250);
+    setTimeout(() => el.remove(), 10000);
+  }, 150);
 </script>
 </body>
 </html>
